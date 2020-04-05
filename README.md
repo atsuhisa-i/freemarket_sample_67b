@@ -33,18 +33,18 @@ Things you may want to cover:
 |first_name|string|null : false|
 |family_name_kana|string|null : false|
 |first_name_kana|string|null : false|
-|e-mail|string|null : false, unique : true|
+|e_mail|string|null : false, unique : true|
 |password|string|null : false, unique : true|
 |birth_year|date|null : false|
 |birth_month|date|null : false|
 |birth_day|date|null : false|
 
 ### Association
-- belongs_to : credit_card
-- belongs_to : deliver_address
-- has_many : items
-- has_many : comments
-- has_many : likes, through : users-likes
+- has_one : credit_card, dependent: :destroy
+- has_one : deliver_address, dependent: :destroy
+- has_many : items, dependent: :destroy
+- has_many : comments, dependent: :destroy
+- has_many : likes, through : users-likes, dependent: :destroy
 - has_many : users-likes
 
 ## deliver_addressesテーブル
@@ -99,9 +99,9 @@ Things you may want to cover:
 - belongs_to : user
 - belongs_to : category
 - belongs_to : brand
-- has_many : comments
-- has_many : pictures
-- has_many : likes, through : items-likes
+- has_many : comments, dependent: :destroy
+- has_many : pictures, dependent: :destroy
+- has_many : likes, through : items-likes, dependent: :destroy
 - has-many : items-likes
 
 ## commentsテーブル
@@ -137,7 +137,7 @@ Things you may want to cover:
 - has_many : users-likes
 - has_many : items-likes
 
-## items-likesテーブル
+## items_likesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -148,7 +148,7 @@ Things you may want to cover:
 - belongs_to : item
 - belongs_to : like
 
-## users-likesテーブル
+## users_likesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
