@@ -28,13 +28,13 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null : false, unique : true|
+|nickname|string|null : false|
 |family_name|string|null : false|
 |first_name|string|null : false|
 |family_name_kana|string|null : false|
 |first_name_kana|string|null : false|
 |e-mail|string|null : false, unique : true|
-|passward|string|null : false, unique : true|
+|password|string|null : false, unique : true|
 |birth_year|date|null : false|
 |birth_month|date|null : false|
 |birth_day|date|null : false|
@@ -59,8 +59,8 @@ Things you may want to cover:
 |zip_code|integer(7)|null : false|
 |prefecture|string|null : false|
 |municipality|string|null : false|
-|building_name|string|null : false|
-|phone_number|integer|unique : true|
+|building_name|string|
+|phone_number|integer|
 
 ### Association
 - belongs_to : user
@@ -93,6 +93,7 @@ Things you may want to cover:
 |shipping_origin|string|null : false|
 |days_to_ship|integer|null : false|
 |price|integer|null : false|
+|trading_status|enum|null : false|
 
 ### Association
 - belongs_to : user
