@@ -44,8 +44,7 @@ Things you may want to cover:
 - has_one : deliver_address, dependent: :destroy
 - has_many : items, dependent: :destroy
 - has_many : comments, dependent: :destroy
-- has_many : likes, through : users-likes, dependent: :destroy
-- has_many : users-likes
+- has_many : likes, dependent: :destroy
 
 ## deliver_addressesテーブル
 
@@ -101,8 +100,7 @@ Things you may want to cover:
 - belongs_to : brand
 - has_many : comments, dependent: :destroy
 - has_many : pictures, dependent: :destroy
-- has_many : likes, through : items-likes, dependent: :destroy
-- has-many : items-likes
+- has_many : likes, dependent: :destroy
 
 ## commentsテーブル
 
@@ -134,30 +132,8 @@ Things you may want to cover:
 |item_id|references|null : false, foreign_key : true|
 
 ### Association
-- has_many : users-likes
-- has_many : items-likes
-
-## items_likesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|item_id|references|null : false, foreign_key : true|
-|like_id|references|null : false, foreign_key : true|
-
-### Association
-- belongs_to : item
-- belongs_to : like
-
-## users_likesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null : false, foreign_key : true|
-|like_id|references|null : false, foreign_key : true|
-
-### Association
 - belongs_to : user
-- belongs_to : like
+- belongs_to : item
 
 ## categoriesテーブル
 
