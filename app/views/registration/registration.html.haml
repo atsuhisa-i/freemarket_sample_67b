@@ -29,6 +29,8 @@
     %input#password-check{type: "checkbox"}
     %span
       パスワードを表示する
+    %br/
+
     %label
       お名前(全角) 
     %span.form_require
@@ -37,4 +39,29 @@
     .form_flex
       %input.input_default{name: "family_name", type: "text", placeholder: "例) 鈴木", class: "half"}
       %input.input_default{:name => "first_name", :type => "text", :placeholder => "例) 太郎", :class => "half"}
+      %br/
+      %label
+        お名前カナ(全角)
+      %span.form_require
+        必須
+      %br/
+      .form_flex
+        %input.input_default{name: "family_name_kana", type: "text",placeholder: "例) スズキ"}
+        %input.input_default{name: "first_name_kana", type: "text",placeholder: "例) タロウ"}
+      %label
+        生年月日 
+      %span.form_require
+        必須
+
+      %div
+      %select#select_year{name: "birth_year"}
+      年
+      = succeed "\u{6708}" do
+        %select#select_month{name: "birth_month"}
+      = succeed "\u{65e5}" do
+        %select#select_day{name: "birth_day"}
+      %p.form_info
+        ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
     
+      %button{type: "submit", class: "btn_red"}
+        次へ進む
