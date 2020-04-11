@@ -29,7 +29,7 @@ body {
         &__furima {
           width: 140px;
           display: block;
-          #stylist-image1 {
+          .stylist-image1 {
             width: 140px;
             height: 40.55px;
             vertical-align: bottom;
@@ -57,7 +57,7 @@ body {
             padding: 8px;
             &__logo{
               display: block;
-              #stylist-image2 {
+              .stylist-image2 {
                 width: 19.77px;
                 height: 20px;
               }
@@ -188,7 +188,7 @@ body {
             background-color: $main-color;
             color: $font-white-color;
           }
-          img {
+          .img {
             width: 100%;
             vertical-align: bottom;
             height: 306px;
@@ -276,7 +276,7 @@ body {
           width: 70%;
           margin: 0 auto;
           line-height: 120px;
-          img {
+          .img {
             width: 100%;
             vertical-align: bottom;
           }
@@ -338,7 +338,7 @@ body {
               overflow: hidden;
               margin: 0;
               z-index: auto;
-              img {
+              .img {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -412,7 +412,7 @@ body {
       .main-btn__apple {
         margin-right: 10px;
       }
-      img {
+      .btn {
         vertical-align: bottom;
         width: $banner-with;
       }
@@ -454,7 +454,7 @@ body {
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
-    img {
+    .img {
       width: 100%;
       vertical-align: bottom;
     }
@@ -480,7 +480,7 @@ body {
       text-decoration: none;
       margin-bottom: 5px;
     }
-    &__image {
+    .img {
       vertical-align: bottom;
       height: 54px;
     }
