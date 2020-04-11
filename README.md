@@ -45,6 +45,8 @@ Things you may want to cover:
 - has_many : items, dependent: :destroy
 - has_many : comments, dependent: :destroy
 - has_many : likes, dependent: :destroy
+- has_many : buy_items, class_name: 'Transaction', :foreign_key => 'buyer_id'
+- has_many : sell_items, class_name: 'Transaction', :foreign_key => 'seller_id'
 
 ## deliver_addressesテーブル
 
@@ -69,10 +71,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null : false, foreign_key : true|
-|card_number|integer|null : false, unique : true|
-|year|integer|null : false|
-|month|integer|null : false|
-|security_number|integer|null : false|
+|customer_id|string|null : false|
+|card_id|string|null : false|
 
 ### Association
 - belongs_to : user
@@ -98,6 +98,8 @@ Things you may want to cover:
 - belongs_to : user
 - belongs_to : category
 - belongs_to : brand
+- belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id'
+- belongs_to :seller, class_name: 'User', :foreign_key => 'seller_id'
 - has_many : comments, dependent: :destroy
 - has_many : pictures, dependent: :destroy
 - has_many : likes, dependent: :destroy
