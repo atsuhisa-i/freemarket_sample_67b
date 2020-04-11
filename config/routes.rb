@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root to: 'new#new'
+  root to: 'registration#registration'
 end
