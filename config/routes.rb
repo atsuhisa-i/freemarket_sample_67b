@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'registration#registration'
-  #root to: 'login#login'
+  root "top#index"
+  resources :items, only: [:show] 
 end
 
 #registration
