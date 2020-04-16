@@ -1,0 +1,31 @@
+.login-header {
+  padding: 0 60px;
+  background-color: #f5f5f5;
+  &__inner {
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding-top: 15px;
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__logo {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        &__furima {
+          width: 140px;
+          display: block;
+          .stylist-image1 {
+            width: 140px;
+            height: 40.55px;
+            vertical-align: bottom;
+          }
+        }
+      }
+    }
+  }
+}
+      
