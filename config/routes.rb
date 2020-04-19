@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create, :show]
   resources :registrations
   resources :logins
+  resources :items, only: [:show] 
+  resources :puroducts, onyl: [:index]
 end
 
