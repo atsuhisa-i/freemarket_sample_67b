@@ -28,17 +28,14 @@
           %button{type: "submit", class: "login-btn_red"}
             ログイン
 
-.purchase-footer
-  .purchase-footer__list
-    .purchase-footer__list__message
-      = link_to 'プライバシーポリシー',''
-    .purchase-footer__list__message
-      = link_to 'FURIMA利用規約',''
-    .purchase-footer__list__message
-      = link_to '特定取引に関する表記',''
-  .purchase-footer__company
-  = link_to '#', class: "purchase-footer__logo" do
-    %p© Fmarket, Inc.
-  .fotter__logo
-    = link_to "#", class: "furima-logo" do
-      = image_tag "/assets/material/logo/logo-white.png", class: "img"
+.item__sell__footer
+  %ul
+    %li
+      プライバシーポリシー
+    %li
+      フリマ利用規約
+    %li
+      特定商取引に関する表記
+  .item__sell__footer__logo
+    = link_to root_path do
+      = image_tag "/assets/material/logo/logo-white.png", class: "furima__white__logo"
