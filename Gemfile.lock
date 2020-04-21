@@ -46,6 +46,8 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
+    ancestry (3.0.7)
+      activerecord (>= 3.2.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -259,6 +261,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ancestry
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -293,4 +296,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   2.1.2
+   2.1.4
