@@ -10,8 +10,10 @@
 
 .item__input {
   background-color: whitesmoke;
+  text-align: center;
   .item__sell__form1 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame {
       background-color: white;
       height: 300px;
@@ -70,7 +72,8 @@
   }  
 
   .item__sell__form2 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame {
       background-color: white;
       height: 416px;
@@ -132,7 +135,8 @@
   }
 
   .item__sell__form3 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame {
       background-color: white;
       height: 570px;
@@ -255,7 +259,8 @@
   }
 
   .item__sell__form4 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame {
       background-color: white;
       height: 444px;
@@ -352,7 +357,8 @@
   }
 
   .item__sell__form5 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame{
     background-color: white;
     height: 600px;
