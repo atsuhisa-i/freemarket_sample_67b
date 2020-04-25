@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_074309) do
     t.string "shipping_origin", null: false
     t.integer "days_to_ship", null: false
     t.integer "price", null: false
-    t.integer "trading_status", null: false
+    t.integer "trading_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
