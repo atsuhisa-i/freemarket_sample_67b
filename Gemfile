@@ -78,3 +78,10 @@ gem 'font-awesome-sass'
 
 gem 'erb2haml'
 gem 'fog-aws'
+
+gem 'ancestry'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
