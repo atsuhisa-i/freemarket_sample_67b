@@ -3,13 +3,13 @@
     .wrapper
       %h1.wrapper__logo
         = link_to root_path, class: "wrapper__logo__furima" do
-          = image_tag "/assets/material/logo/logo.png", class: "stylist-image1"
+          = image_tag "material/logo/logo.png", class: "stylist-image1"
       .wrapper__search-box
         %form.wrapper__search-box__form
           %input{type: 'text', class: 'form-text', placeholder: "キーワードから探す"}
           %button{type: 'submit', class: 'form-submit'}
             .form-submit__logo
-              = image_tag "/assets/material/icon/icon-search 1.png", class: "stylist-image2"
+              = image_tag "material/icon/icon-search 1.png", class: "stylist-image2"
     .navigation
       %ul.list-left
         %li.list-left__item
@@ -292,4 +292,4 @@
   .display__btn
     %span.display__btn__text
       出品する
-    = image_tag "/assets/material/icon/icon_camera.png", class: "img"
+    = image_tag  "/assets/material/icon/icon_camera.png", class: "img"
