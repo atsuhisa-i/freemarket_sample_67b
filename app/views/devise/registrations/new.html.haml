@@ -48,8 +48,8 @@
             必須
           %br/
           .form_flex
-            %input.input_default{name: "family_name", type: "text", placeholder: "例) 鈴木", class: "half"}
-            %input.input_default{:name => "first_name", :type => "text", :placeholder => "例) 太郎", :class => "half"}
+            = f.text_field :family_name, class: "input_default", placeholder: "例) 鈴木"
+            = f.text_field :first_name, class: "input_default", placeholder: "例) 太郎"
             %br/
             %label
               お名前カナ(全角)
