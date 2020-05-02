@@ -57,8 +57,8 @@
               必須
             %br/
             .form_flex
-              %input.input_default{name: "family_name_kana", type: "text",placeholder: "例) スズキ"}
-              %input.input_default{name: "first_name_kana", type: "text",placeholder: "例) タロウ"}
+              = f.text_field :family_name_kana, class: "input_default", placeholder: "例) スズキ"
+              = f.text_field :first_name_kana, class: "input_default", placeholder: "例) タロウ"
             %br/
             %label
               生年月日 
