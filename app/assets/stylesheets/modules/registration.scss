@@ -60,10 +60,14 @@
   }
   
 }
-.form_flex--birthday{
-  height: 40px;
+.form_birthday{
   margin: 5px;
-  width: 200px;
+  width: 100%;
+  .year,.month,.day{
+    width: 60px;
+    height: 40px;
+    margin: 8px;
+   }
 }
 
 
