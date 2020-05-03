@@ -13,7 +13,6 @@
           %span.form_require
             必須
           %br/
-          -#%input.input_default{name: "nickname", type: "text", placeholder: "例) フリマ 太郎"}
           = f.text_field :nickname, class: "input_default", placeholder: "例) フリマ 太郎"
           %br/
 
@@ -23,8 +22,7 @@
           %span.form_require
             必須
           %br/
-          -#%input.input_default{name: "e-mail", type: "e-mail", placeholder: "例) PC・携帯どちらでも可"}
-          = f.text_field :e_mail, class: "input_default", placeholder: "例) PC・携帯どちらでも可"
+          = f.text_field :email, class: "input_default", placeholder: "例) PC・携帯どちらでも可"
           %br/
 
           .form-group
@@ -33,7 +31,6 @@
           %span.form_require
             必須
           %br/
-          -#%input#password.field.input_default{type: "password", placeholder: "例) 7文字以上の半角英数字"}
           = f.password_field :password, autofocus: true, autocomplete: "password", placeholder: "7文字以上の半角英数字", class: "input_default"
           %p.form_info
             ※ 英字と数字の両方を含めて設定してください
@@ -56,23 +53,17 @@
             %span.form_require
               必須
             %br/
-            .form_flex
-              = f.text_field :family_name_kana, class: "input_default", placeholder: "例) スズキ"
-              = f.text_field :first_name_kana, class: "input_default", placeholder: "例) タロウ"
+          .form_flex
+            = f.text_field :family_name_kana, class: "input_default", placeholder: "例) スズキ"
+            = f.text_field :first_name_kana, class: "input_default", placeholder: "例) タロウ"
             %br/
-            %label
-              生年月日 
+          .form_flex
+            %label 生年月日 
             %span.form_require
-              必須
-            %div
-
-              = f.date_select :birth_year, {start_year: 1960, end_year: 2100, discard_month: true, discard_day: true} 
-              月
-              = f.date_select :birth_month, {start_month: 1, end_month: 12, discard_year: true, discard_day: true, use_month_numbers: true} 
-              月
-              -# = f.date_select :birth_day, {start_day: 1, end_day: 31, discard_month: true}
-              = f.select :birth_day, [ ["1"], ["2"],["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"],["11"],["12"],["13"],["14"],["15"],["16"],["17"],["18"],["19"],["20"],["21"],["22"],["23"],["24"],["25"],["26"],["27"],["28"],["29"],["30"],["31"],]
-              日            
+              必須    
+            %br/        
+            .form_flex--birthday
+              = f.date_select :birth_day, {use_month_numbers: true}, default: {year: 2000, month: 1, day: 1}
             %p.form_info
               ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           

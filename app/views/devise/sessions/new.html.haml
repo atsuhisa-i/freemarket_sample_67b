@@ -11,19 +11,19 @@
           新規会員登録
     .loginInformationInput__content
       .loginInformationInput__content--form
+      = form_with model:@user, url: user_session_path, local: true do |f|
         .form-group
           %label
             メールアドレス
           %br/
-          %input.input_default{name: "e-mail", type: "e-mail", placeholder: "メールアドレス"}
+          = f.text_field :email, class: "input_default", placeholder: "メールアドレス" 
           %br/
 
         .form-group
           %label
             パスワード
           %br/
-          %input#password.field.input_default{type: "password", placeholder: "パスワード"}
-
+          = f.password_field :password, autofocus: true, autocomplete: "password", placeholder: "パスワード", class: "input_default"
         .form_flex
           %button{type: "submit", class: "login-btn_red"}
             ログイン
