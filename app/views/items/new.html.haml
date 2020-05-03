@@ -12,17 +12,15 @@
           %span.required
             必須
           %p.picture__upper__limit
-            最大10枚までアップロードできます
+            最大５枚までアップロードできます
         .files__content
           %label
-            .files__content__form
+            .item-num-0#files__content__form
               = f.fields_for :images do |image|
-                = image.file_field :image, accept: 'image/png,image/jpeg', multiple: 'multiple', class: 'file__upload'
+                = image.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:'', class: 'file__upload', id: "img-file"
                 = icon("fa", "camera")
                 %p.how__to__upload
-                  ドラッグアンドドロップ
-                  %br
-                  またはクリックしてファイルをアップロード
+                  クリックしてファイルをアップロード
     %hr.style__line
 
     .item__sell__form2
@@ -50,14 +48,13 @@
             カテゴリー
           %span.required
             必須
-        = f.fields_for :category do |category|
-          = category.collection_select :category_id, @categories, :id, :name, { include_blank: "選択してください", selected: 1 }, {id: 'category'}
+        = f.collection_select :category, @category, :id, :name, { include_blank: "選択してください", selected: '' }, {id: 'category'}
         .item__size
           %label.item__size__label
             サイズ
           %span.required
             必須
-        = f.select :size, [["選択してください", 1],["XXS以下", 2],["XS(SS)", 3],["S", 4],["M", 5],["L", 6],["XL(LL)", 7],["2XL(3L)", 8],["3XL(4L)", 9],["4XL(5L)以上", 10],["FREE SIZE", 11]], {}, id: 'size'
+        = f.collection_select :size, @fit, :name, :name, { include_blank: "選択してください", selected: '' }, {id: 'size'}
         .item__brand
           %label.item__brand__label
             ブランド
@@ -70,7 +67,7 @@
             商品の状態
           %span.required
             必須
-        = f.select :condition, [["選択してください", 1],["新品、未使用", 2],["未使用に近い", 3],["目立った傷や汚れなし", 4],["やや傷や汚れあり", 5],["傷や汚れあり", 6],["全体的に状態が悪い", 7]], {}, id: 'condition'
+        = f.collection_select :condition, @quality, :name, :name, { include_blank: "選択してください", selected: '' }, {id: 'condition'}
     %hr.style__line
 
     .item__sell__form4
@@ -82,19 +79,19 @@
             配送料の負担
           %span.required
             必須
-        = f.select :postage_payer, [["選択してください", 1],["送料込み（出品者負担）", 2],["着払い（購入者負担）", 3]], {}, id:'postage__payer'
+        = f.collection_select :postage_payer, @burden, :id, :name, { include_blank: "選択してください", selected: '' }, {id:'postage__payer'}
         .item__shipping__origin
           %label.item__shipping__origin__label
             発送元の地域
           %span.required
             必須
-        = f.select :shipping_origin, [["選択してください", 1],["北海道", 2],["青森県", 3],["岩手県", 4],["宮城県", 5],["秋田県", 6],["山形県", 7],["福島県", 8],["茨城県", 9],["栃木県", 10],["群馬県", 11],["埼玉県", 12],["千葉県", 13],["東京都", 14],["神奈川県", 15],["新潟県", 16],["富山県", 17],["石川県", 18],["福井県", 19],["山梨県", 20],["長野県", 21],["岐阜県", 22],["静岡県", 23],["愛知県", 24],["三重県", 25],["滋賀県", 26],["京都府", 27],["大阪府", 28],["兵庫県", 29],["奈良県", 30],["和歌山県", 31],["鳥取県", 32],["島根県", 33],["岡山県", 34],["広島県", 35],["山口県", 36],["徳島県", 37],["香川県", 38],["愛媛県", 39],["高知県", 40],["福岡県", 41],["佐賀県", 42],["長崎県", 43],["熊本県", 44],["大分県", 45],["宮崎県", 46],["鹿児島県", 47],["沖縄県", 48],["未定", 49]],{}, id: 'shipping__origin'
+        = f.collection_select :shipping_origin, @prefecture, :name, :name, { include_blank: "選択してください", selected: '' }, {id: 'shipping__origin'}
         .item__days__to__ship
           %label.item__days__to__ship__label
             発送までの日数
           %span.required
             必須
-        = f.select :days_to_ship, [["選択してください", 1],["1~2日で発送", 2],["2~3日で発送", 3],["4~7日で発送", 4]], {}, id: 'days__to__ship'
+        = f.collection_select :days_to_ship, @days, :name, :name, { include_blank: "選択してください", selected: '' }, {id: 'days__to__ship'}
     %hr.style__line
 
     .item__sell__form5
