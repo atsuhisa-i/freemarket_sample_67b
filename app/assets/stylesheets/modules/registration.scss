@@ -28,7 +28,9 @@
       margin: 0 auto;
     }
   }
-
+  .completed__text{
+    text-align: center;
+  }
   
   
   .form_require {
@@ -76,6 +78,16 @@
   background-color: #ea352d;
   color: #fff;
   width: 110%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn_red_chomp{
+  margin: 32px 0px 0px 90px;
+  background-color: #ea352d;
+  color: #fff;
+  width: 70%;
   line-height: 48px;
   font-size: 14px;
   cursor: pointer;
