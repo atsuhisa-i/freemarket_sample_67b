@@ -19,12 +19,20 @@
           = link_to "#", class: "burand" do
             ブランド
       %ul.list-right
-        %li.list-right__item
-          = link_to new_user_session_path, class: "list-right__item__btn" do
-            ログイン
-        %li.list-right__item
-          = link_to new_user_registration_path, class: "list-right__item__btn" do
-            新規会員登録
+        - if user_signed_in?
+          %li.list-right__item
+            = link_to destroy_user_session_path, method: :delete, class: "list-right__item__btn" do
+              ログアウト
+          %li.list-right__item
+            = link_to "#", class: "list-right__item__btn" do
+              マイページ
+        - else
+          %li.list-right__item
+            = link_to new_user_session_path, class: "list-right__item__btn" do
+              ログイン
+          %li.list-right__item
+            = link_to new_user_registration_path, class: "list-right__item__btn" do
+              新規会員登録
 .main
   %section.main__image
     .main__image__contents
