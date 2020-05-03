@@ -15,8 +15,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     unless @user.valid?
       render :new and return
     end
-    @user.save
-    sign_in(:user, @user)
+    if @user.save
+      sign_in(:user, @user)
+    else
+      render :new
+    end
   end
 
   
