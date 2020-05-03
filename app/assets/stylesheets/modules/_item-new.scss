@@ -10,11 +10,14 @@
 
 .item__input {
   background-color: whitesmoke;
+  text-align: center;
   .item__sell__form1 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame {
       background-color: white;
       height: 300px;
+      width: 700px;
       padding: 40px 40px;
       .item__picture {
         &__label {
@@ -69,10 +72,12 @@
   }  
 
   .item__sell__form2 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame {
       background-color: white;
       height: 416px;
+      width: 700px;
       padding: 40px 40px;
       .item__name {
         &__label {
@@ -93,7 +98,7 @@
       }
       #name {
         margin-top: 16px;
-        width: 100%;
+        width: 620px;
         height: 48px;
         border-radius: 4px;
         border: 1px solid #ccc;
@@ -119,7 +124,7 @@
       }
       #explanation {
         margin-top: 16px;
-        width: 100%;
+        width: 620px;
         height: 154px;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -130,10 +135,12 @@
   }
 
   .item__sell__form3 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame {
       background-color: white;
       height: 570px;
+      width: 700px;
       padding: 40px 40px;
       .item__detail {
         font-size: 14px;
@@ -252,10 +259,12 @@
   }
 
   .item__sell__form4 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame {
       background-color: white;
       height: 444px;
+      width: 700px;
       padding: 40px 40px;
       .about__shipping {
         font-size: 14px;
@@ -348,10 +357,12 @@
   }
 
   .item__sell__form5 {
-    margin: 0 350px 0 350px;
+    display: inline-block;
+    text-align: left;
     .form__frame{
     background-color: white;
     height: 600px;
+    width: 700px;
     padding: 40px 40px;
       .about__price {
         font-size: 14px;
