@@ -62,8 +62,9 @@
             %span.form_require
               必須    
             %br/        
-            .form_flex--birthday
-              = f.date_select :birth_day, {use_month_numbers: true}, default: {year: 2000, month: 1, day: 1}
+            .form_birthday
+              = f.date_select :birth_day, {use_month_numbers: true, with_css_classes:'', prompt:"--", start_year:Time.now.year, end_year:1900}
+              %br/
             %p.form_info
               ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           
