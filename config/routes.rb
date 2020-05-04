@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :registrations
   resources :logins
   resources :puroducts, onyl: [:index]
+  resources :mypage
 end
 
