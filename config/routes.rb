@@ -3,9 +3,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   
-  # devise_scope :user do 
-  
-  # end
+  devise_scope :user do
+    get 'deliver_address', to: 'users/registrations#new_deliver_address'
+    post 'deliver_address', to: 'users/registrations#create_deliver_address'
+  end
 
   root "top#index"
   resources :items, only: [:new, :create, :show]

@@ -13,14 +13,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     unless @user.valid?
+      flash.now[:alert] = @user.errors.full_messages
       render :new and return
     end
-    if @user.save
-      sign_in(:user, @user)
-    else
-      render :new
-    end
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @deliver_address = @user.build_deliver_address
+    render :new_deliver_address
   end
+
+  # def create
+  #   @user = User.new(sign_up_params)
+  #   unless @user.valid?
+  #     render :new and return
+  #   end
+  #   if @user.save
+  #     sign_in(:user, @user)
+  #   else
+  #     render :new
+  #   end
+  # end
 
   
   # GET /resource/edit
