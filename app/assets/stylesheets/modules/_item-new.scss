@@ -41,12 +41,42 @@
         margin-top: 16px;
       }
       .files__content {
-        width: 620px;
-        height: 150px;
         margin-top: 16px;
-        &__form{
+        height: 150px;
+        position: relative;
+        .item-image {
+          display: inline-block;
+        }
+        .item-num-1{
+          width: 491px;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        .item-num-2{
+          width: 363px;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        .item-num-3{
+          width: 234px;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        .item-num-4{
+          width: 106px;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        #files__content__form{
           text-align: center;
-          width: 620px;
           height:  150px;
           border-style: dashed;
           border-width: 1px;
@@ -69,8 +99,8 @@
         }
       }
     }
-  }  
-
+  }
+ 
   .item__sell__form2 {
     display: inline-block;
     text-align: left;
@@ -511,4 +541,36 @@
   border-top-style: solid;
   border-bottom: 0 solid;
   margin: 0 350px 0 350px;
+}
+
+.item-num-0{
+  width: 100%;
+}
+.item-num-1{
+  width: 491px;
+}
+.item-num-2{
+  width: 363px;
+}
+.item-num-3{
+  width: 234px;
+}
+.item-num-4{
+  width: 106px;
+}
+//下段のfile_field
+.item-num-5{
+  width: 100%;
+}
+.item-num-6{
+  width: 491px;
+}
+.item-num-7{
+  width: 363px;
+}
+.item-num-8{
+  width: 234px;
+}
+.item-num-9{
+  width: 106px;
 }
