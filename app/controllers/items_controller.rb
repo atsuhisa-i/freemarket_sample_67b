@@ -1,14 +1,22 @@
 class ItemsController < ApplicationController
   def new
-    @item = Item.new
-    @item.pictures.build
-    @item.build_category
-    @item.build_brand
-    @categories = Category.all
+    if user_signed_in?
+      @item = Item.new
+      @item.pictures.build
+      @item.build_brand
+      @category = Category.all
+      @prefecture = Prefecture.all
+      @fit = Fit.all
+      @quality = Quality.all
+      @burden = Burden.all
+      @days = Days.all
+    else
+      redirect_to root_path
+    end
   end
 
   def create
-    @item = current_user.items.build(item_params)
+    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -23,6 +31,6 @@ class ItemsController < ApplicationController
 private
 
   def item_params
-    params.require(:item).permit(:name, :explanation, :size, :condition, :postage_payer, :shipping_origin, :days_to_ship, :price, :trading_status, pictures_attributes: [:image], category_attributes: [:name], brand_attributes: [:name]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :explanation, :size, :category, :condition, :postage_payer, :shipping_origin, :days_to_ship, :price, :trading_status, pictures_attributes: [:image], brand_attributes: [:name]).merge(seller_id: current_user.id)
   end
 end
