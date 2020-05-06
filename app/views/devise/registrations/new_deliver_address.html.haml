@@ -32,7 +32,7 @@
             必須
           %br/
           .form_flex
-            = f.text_field :zip_code, class: "input_default", placeholder: "1234567", pattern: "\d{7}"
+            = f.text_field :zip_code, class: "input_default", placeholder: "1234567"
           %br/
           %label
             都道府県
@@ -64,7 +64,7 @@
             任意
           %br/        
           .form_flex
-            = f.text_field :phone_number, class: "input_default", placeholder: '例）09012341234', pattern: "\d{10,11}"
+            = f.text_field :phone_number, class: "input_default", placeholder: '例）09012341234'
           %br/
           %p.form_info
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
