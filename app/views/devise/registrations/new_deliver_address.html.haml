@@ -6,7 +6,7 @@
       住所登録
     .MemberInformationInput__content
       .MemberInformationInput__content--form
-      = form_with model:@deliver_address, local: true do |f| 
+      = form_with model:@deliver_address, url: deliver_addresses_path, local: true do |f| 
         .form-group
           %label
             送付先氏名(全角) 
