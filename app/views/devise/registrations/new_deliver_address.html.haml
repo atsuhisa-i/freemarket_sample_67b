@@ -1,0 +1,84 @@
+= render "devise/registrations/regist-header"
+
+.infomation-input
+  .MemberInformationInput
+    .MemberInformationInput__title
+      住所登録
+    .MemberInformationInput__content
+      .MemberInformationInput__content--form
+      = form_with model:@deliver_address, local: true do |f| 
+        .form-group
+          %label
+            送付先氏名(全角) 
+          %span.form_require
+            必須
+          %br/
+          .form_flex
+            = f.text_field :family_name, autofocus: true, class: "input_default", placeholder: "例) 鈴木"
+            = f.text_field :first_name, class: "input_default", placeholder: "例) 太郎"
+          %br/
+          %label
+            フリガナ(全角)
+          %span.form_require
+            必須
+          %br/
+          .form_flex
+            = f.text_field :family_name_kana, class: "input_default", placeholder: "例) スズキ"
+            = f.text_field :first_name_kana, class: "input_default", placeholder: "例) タロウ"
+          %br/
+          %label
+            〒郵便番号（ハイフンなし）
+          %span.form_require
+            必須
+          %br/
+          .form_flex
+            = f.text_field :zip_code, class: "input_default", placeholder: "1234567", pattern: "\d{7}"
+          %br/
+          %label
+            都道府県
+          %span.form_require
+            必須
+          %br/
+          .form_flex
+            = f.collection_select :prefecture, Prefecture.all, :id, :name, prompt: "---"
+          %br/
+          %label
+            市区町村
+          %span.form_require
+            必須    
+          %br/        
+          .form_flex
+            = f.text_field :municipality, class: "input_default", placeholder: "例）横浜市葵区"
+          %br/
+          %label
+            番地•号 / 建物名
+          %span.form_any
+            任意
+          %br/        
+          .form_flex
+            = f.text_field :building_name, class: "input_default", placeholder: "例）青山1-1-1 or マンション名"
+          %br/
+          %label
+            電話番号(ハイフンなし)
+          %span.form_any
+            任意
+          %br/        
+          .form_flex
+            = f.text_field :phone_number, class: "input_default", placeholder: '例）09012341234', pattern: "\d{10,11}"
+          %br/
+          %p.form_info
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          
+            .actions
+            = f.submit "登録", class: "btn_red" 
+.item__sell__footer
+  %ul
+    %li
+      プライバシーポリシー
+    %li
+      フリマ利用規約
+    %li
+      特定商取引に関する表記
+  .item__sell__footer__logo
+    = link_to root_path do
+      = image_tag "/assets/material/logo/logo-white.png", class: "furima__white__logo"
