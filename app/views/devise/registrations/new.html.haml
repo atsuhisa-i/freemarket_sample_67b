@@ -13,7 +13,7 @@
           %span.form_require
             必須
           %br/
-          = f.text_field :nickname, class: "input_default", placeholder: "例) フリマ 太郎"
+          = f.text_field :nickname, autofocus: true, class: "input_default", placeholder: "例) フリマ 太郎"
           %br/
 
           .form-group
@@ -31,7 +31,7 @@
           %span.form_require
             必須
           %br/
-          = f.password_field :password, autofocus: true, autocomplete: "password", placeholder: "7文字以上の半角英数字", class: "input_default"
+          = f.password_field :password, autocomplete: "password", placeholder: "7文字以上の半角英数字", class: "input_default"
           %p.form_info
             ※ 英字と数字の両方を含めて設定してください
           %input#password-check{type: "checkbox"}
