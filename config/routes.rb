@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   }
   
   devise_scope :user do
-    get 'deliver_address', to: 'users/registrations#new_deliver_address'
-    post 'deliver_address', to: 'users/registrations#create_deliver_address'
+    get 'deliver_addresses', to: 'users/registrations#new_deliver_address'
+    post 'deliver_addresses', to: 'users/registrations#create_deliver_address'
   end
 
   root "top#index"
