@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_many :sell_items, class_name: 'Transaction', :foreign_key => 'seller_id'
   
   validates :nickname, :email, :password, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_day, presence: true
+  validates :family_name, :first_name, :family_name_kana, :first_name_kana, format: { with: /\A[ぁ-んァ-ン一-龥]/}
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 end
