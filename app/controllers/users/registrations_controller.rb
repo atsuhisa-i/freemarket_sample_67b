@@ -26,7 +26,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_data"]["user"])
     @deliver_address = DeliverAddress.new(address_params)
     unless @deliver_address.valid?
-      flash.now[:alert] = @address.errors.full_messages
+      flash.now[:alert] = @deliver_address.errors.full_messages
       render :new_deliver_address and return
     end
     @user.build_deliver_address(@deliver_address.attributes)
