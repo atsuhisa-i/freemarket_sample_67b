@@ -15,5 +15,6 @@ class User < ApplicationRecord
   validates :nickname, :email, :password, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_day, presence: true
   validates :family_name, :first_name, :family_name_kana, :first_name_kana, format: { with: /\A[ぁ-んァ-ン一-龥]/}
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  validates :password, format: {with: /\A[a-z\d]{7,}+\z/i}
+  validates :family_name_kana, :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :password, format: { with: /\A[a-z0-9]{7,}+\z/i}
 end
