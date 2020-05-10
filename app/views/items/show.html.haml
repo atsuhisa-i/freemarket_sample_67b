@@ -13,18 +13,26 @@
     .navigation
       %ul.list-left
         %li.list-left__item
-          = link_to "#", class: "list-left__item__kategori" do
+          = link_to "#", class: "list-left__item__category" do
             カテゴリー
         %li.list-left__item__btn
           = link_to "#", class: "burand" do
             ブランド
       %ul.list-right
-        %li.list-right__item
-          = link_to "#", class: "list-right__item__btn" do
-            ログイン
-        %li.list-right__item
-          = link_to "#", class: "list-right__item__btn" do
-            新規会員登録
+        - if user_signed_in?
+          %li.list-right__item
+            = link_to destroy_user_session_path, method: :delete, class: "list-right__item__btn" do
+              ログアウト
+          %li.list-right__item
+            = link_to "#", class: "list-right__item__btn" do
+              マイページ
+        - else
+          %li.list-right__item
+            = link_to new_user_session_path, class: "list-right__item__btn" do
+              ログイン
+          %li.list-right__item
+            = link_to new_user_registration_path, class: "list-right__item__btn" do
+              新規会員登録
 %nav.category
   %ul.category__ul
     %li.category__ul__li
@@ -34,7 +42,7 @@
       = icon('fa', 'angle-right')
     %li.category__ul__li
       = link_to "#", class: "btn" do
-        ベビー・キッズ
+        = @item.category.name
     %li.category__ul__li
       = icon('fa', 'angle-right')
     %li.category__ul__li
@@ -49,35 +57,37 @@
       = icon('fa', 'angle-right')
     %li.category__ul__li
       = link_to "#", class: "btn-bold" do
-        product3
+        = @item.name
 .main
   .main__show
     .main__show__content
       .item
         .item__box
           %h2.item__box__name
-            product3
+            = @item.name
           .item__box__body
             %ul.image
-              %li.image__pict
-                = image_tag "material/pict/product3.png", class: "image__pict__size"
-                %ul.image__pict__multiple
-                  %li.list
-                    = image_tag "material/pict/product3.png", class: "list__size"
-                  %li.list
-                    = image_tag "material/pict/product2.png", class: "list__size"
-                  %li.list
-                    = image_tag "material/pict/product1.png", class: "list__size"
+              - objects = @item.pictures
+              - objects.each do |object|
+                %li.image__pict
+                  = image_tag object.image.url, class: "image__pict__size"
+                  %ul.image__pict__multiple
+                    %li.list
+                      = image_tag "material/pict/product3.png", class: "list__size"
+                    %li.list
+                      = image_tag "material/pict/product2.png", class: "list__size"
+                    %li.list
+                      = image_tag "material/pict/product1.png", class: "list__size"
           .item__box__price
             %span.price
-              ¥30000
+              = @item.price
             .detail
               %span
                 (税込)
               %span
                 送料込み
           .item__box__detail
-            親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            = @item.explanation
           .item__box__table
             %table.table
               %tbody.tbody
@@ -107,28 +117,28 @@
                   %th.th
                     商品のサイズ
                   %td.td
-                    hoge
+                    = @item.size
                 %tr.tr
                   %th.th
                     商品の状態
                   %td.td
-                    未使用に近い
+                    = @item.condition
                 %tr.tr
                   %th.th
                     配送料の負担
                   %td.td
-                    送料込み（出品者負担）
+                    = @item.postage_payer
                 %tr.tr
                   %th.th
                     発送元の地域
                   %td.td
                     = link_to "#", class: "td__color" do
-                      大阪
+                      = @item.shipping_origin
                 %tr.tr
                   %th.th
                     発送日の目安
                   %td.td
-                    4-7日で発送
+                    = @item.days_to_ship
           .item__box__option
             %ul.like
               %li.like__btn
@@ -222,7 +232,7 @@
       = image_tag "material/logo/logo-white.png", class: "img"
     %p
       © FURIMA
-= link_to "#", class: "display" do
+= link_to new_item_path, class: "display" do
   .display__btn
     %span.display__btn__text
       出品する
