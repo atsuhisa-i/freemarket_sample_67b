@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  def index
+  end
+
   def new
     if user_signed_in?
       @item = Item.new
@@ -20,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
 private
