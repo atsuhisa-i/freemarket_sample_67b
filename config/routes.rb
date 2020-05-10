@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   
   # end
 
-  root "top#index"
-  resources :items, only: [:new, :create, :show]
+  root "items#index"
+  resources :items, only: [:new, :create, :show, :index]
   resources :puroducts, onyl: [:index]
 end
 

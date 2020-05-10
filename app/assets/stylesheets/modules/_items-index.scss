@@ -75,7 +75,7 @@ body {
         position: relative;
         display: flex;
         &__item{
-          &__kategori {
+          &__category {
             text-decoration: none;
             padding-right: 30px;
             color: $black-color;
@@ -386,7 +386,7 @@ body {
   }
 }
 .app-banner {
-  background-image: url("material/pict/bg-appBanner-pict.jpg");
+  background-image: image-url("material/pict/bg-appBanner-pict.jpg");
   padding: 100px 40px;
   position: relative;
   background-size: cover;
