@@ -79,7 +79,7 @@
             配送料の負担
           %span.required
             必須
-        = f.collection_select :postage_payer, Burden.all, :id, :name, { include_blank: "選択してください", selected: '' }, {id:'postage__payer'}
+        = f.collection_select :postage_payer, Burden.all, :name, :name, { include_blank: "選択してください", selected: '' }, {id:'postage__payer'}
         .item__shipping__origin
           %label.item__shipping__origin__label
             発送元の地域
