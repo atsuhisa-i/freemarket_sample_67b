@@ -47,23 +47,25 @@ ActiveRecord::Schema.define(version: 2020_04_26_062541) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "buyer_id"
+    t.bigint "seller_id", null: false
     t.string "name", null: false
     t.text "explanation", null: false
     t.string "size", null: false
     t.bigint "category_id", null: false
     t.bigint "brand_id"
-    t.integer "condition", null: false
-    t.boolean "postage_payer", null: false
+    t.string "condition", null: false
+    t.integer "postage_payer", null: false
     t.string "shipping_origin", null: false
-    t.integer "days_to_ship", null: false
+    t.string "days_to_ship", null: false
     t.integer "price", null: false
     t.integer "trading_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -96,8 +98,6 @@ ActiveRecord::Schema.define(version: 2020_04_26_062541) do
     t.string "family_name", null: false
     t.string "first_name_kana", null: false
     t.string "family_name_kana", null: false
-    t.date "birth_year", null: false
-    t.date "birth_month", null: false
     t.date "birth_day", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_04_26_062541) do
 
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "pictures", "items"
 end
