@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post 'deliver_addresses', to: 'users/registrations#create_deliver_address'
   end
 
-  root "top#index"
+  root "items#index"
   resources :items, only: [:new, :create, :show]
   resources :puroducts, onyl: [:index]
 end
