@@ -1,4 +1,20 @@
-= render "devise/registrations/regist-header"
+.regist-header
+  .regist-header__inner
+    .wrapper
+      %h1.wrapper__logo
+        = link_to root_path, class: "wrapper__logo__furima" do
+          = image_tag "material/logo/logo.png", class: "stylist-image1"
+      %nav.user-header__nav
+        %ol.user-header__nav__ol
+          %li.through.user-header__nav__ol__progress
+            会員情報
+            .user-header__nav__ol__progress__li
+          %li.through.user-header__nav__ol__progress
+            住所登録
+            .user-header__nav__ol__progress__li
+          %li.active.user-header__nav__ol__progress
+            完了
+            .user-header__nav__ol__progress__li
 
 .infomation-input
   .MemberInformationInput
