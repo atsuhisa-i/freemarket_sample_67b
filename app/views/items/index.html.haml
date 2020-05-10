@@ -134,111 +134,24 @@
           %h3.title
             新規投稿商品
       .pickup__box__lists
-        .list
-          = link_to "#", class: "list__link" do
-            %figure.list__link__image
-              = image_tag "material/pict/product3.png", class: "img"
-            .list__link__body
-              %h3.name
-                product3
-              .detai
-                %ul.detai__lists
-                  %li
-                    30000円
-                  %li
-                    %i.fa.fa-star
-                    0
-                %p
-                  (税込)
-        .list
-          = link_to "#", class: "list__link" do
-            %figure.list__link__image
-              = image_tag "material/pict/product2.png", class: "img"
-            .list__link__body
-              %h3.name
-                product2
-              .detai
-                %ul.detai__lists
-                  %li
-                    20000円
-                  %li
-                    %i.fa.fa-star
-                    0
-                %p
-                  (税込)
-        .list
-          = link_to "#", class: "list__link" do
-            %figure.list__link__image
-              = image_tag "material/pict/product1.png", class: "img"
-            .list__link__body
-              %h3.name
-                product1
-              .detai
-                %ul.detai__lists
-                  %li
-                    10000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p
-                  (税込)
-  %section.pickup
-    %h2.pickup__text
-      ピックアップブランド
-    .pickup__box
-      .pickup__box__text
-        = link_to "#", class: "pickup__box__text__link" do
-          %h3.title
-            アーカイバ
-      .pickup__box__lists
-        .list
-          = link_to "#", class: "list__link" do
-            %figure.list__link__image
-              = image_tag "material/pict/product3.png", class: "img"
-            .list__link__body
-              %h3.name
-                product3
-              .detai
-                %ul.detai__lists
-                  %li
-                    30000円
-                  %li
-                    %i.fa.fa-star
-                    0
-                %p
-                  (税込)
-        .list
-          = link_to "#", class: "list__link" do
-            %figure.list__link__image
-              = image_tag "material/pict/product2.png", class: "img"
-            .list__link__body
-              %h3.name
-                product2
-              .detai
-                %ul.detai__lists
-                  %li
-                    20000円
-                  %li
-                    %i.fa.fa-star
-                    0
-                %p
-                  (税込)
-        .list
-          = link_to "#", class: "list__link" do
-            %figure.list__link__image
-              = image_tag "material/pict/product1.png", class: "img"
-            .list__link__body
-              %h3.name
-                product1
-              .detai
-                %ul.detai__lists
-                  %li
-                    10000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p
-                  (税込)
+        - @items.each do |item|
+          .list
+            = link_to item_path(item.id), class: "list__link" do
+              %figure.list__link__image
+                = image_tag item.pictures[0].image.to_s, size: '220x150'
+              .list__link__body
+                %h3.name
+                  = item.name
+                .detai
+                  %ul.detai__lists
+                    %li
+                      = item.price
+                    %li
+                      %i.fa.fa-star
+                      0
+                  %p
+                    (税込)
+
 %aside.app-banner
   .app-banner__box
     %h2.app-banner__box__title

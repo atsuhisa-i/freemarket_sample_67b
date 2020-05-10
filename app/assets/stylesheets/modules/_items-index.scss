@@ -324,11 +324,8 @@ body {
         justify-content: space-around;
         .list {
           width: 220px;
-          display: inline-block;
-          float: left;
           &__link {
             background-color: $font-white-color;
-            display: inline-block;
             text-decoration: none;
             position: relative;
             &__image {
