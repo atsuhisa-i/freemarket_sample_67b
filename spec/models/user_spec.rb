@@ -56,7 +56,7 @@ describe User, type: :model do
     end
 
     it "emailに＠がない場合は登録できない" do
-      user = build(:user, email: "zzzzzzz")
+      user = build(:user, email: "zzzzzz")
       user.valid?
       expect(user.errors[:email]).to include("は不正な値です")
     end
@@ -70,17 +70,17 @@ describe User, type: :model do
     it "family_name_kanaが全角カタカナの場合は登録できること" do
       user = build(:user, family_name_kana: "タナカ")
       user.valid?
-      expect(user.errors[:family_name_kana]).to include("全角カタカナで入力してください")
+      expect(user).to be_valid
     end
 
     it "family_name_kanaが全角カタカナでない場合は登録できないこと" do
-      user = build(:user, family_name_kana: "tanaka")
+      user = build(:user, family_name_kana: "ﾀﾅｶ")
       user.valid?
-      expect(user.errors[:family_name_kana]).to include("全角カタカナで入力してください")
+      expect(user.errors[:family_name_kana]).to include("全角で入力してください")
     end
 
     it "passwordフォーマット外だと登録できないこと" do
-      user = build(:user, password: "000", password_confirmation: "000")
+      user = build(:user, password: "zxcv00")
       user.valid?
       expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
     end

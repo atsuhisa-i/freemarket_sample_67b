@@ -28,7 +28,7 @@ describe DeliverAddress, type: :model do
     it "family_nameが全角である場合は登録できること" do
       deliver_address = build(:deliver_address, family_name: "田中")
       deliver_address.valid?
-      expect(deliver_address.errors[:family_name]).to include("全角で入力してください")
+      expect(deliver_address).to be_valid
     end
 
     it "family_nameが全角でない場合は登録できないこと" do
@@ -40,7 +40,7 @@ describe DeliverAddress, type: :model do
     it "first_nameが全角である場合は登録できること" do
       deliver_address = build(:deliver_address, first_name: "太郎")
       deliver_address.valid?
-      expect(deliver_address.errors[:first_name]).to include("全角で入力してください")
+      expect(deliver_address).to be_valid
     end
 
     it "first_nameが全角でない場合は登録できないこと" do
@@ -52,7 +52,7 @@ describe DeliverAddress, type: :model do
     it "family_name_kanaが全角である場合は登録できること" do
       deliver_address = build(:deliver_address, family_name_kana: "タナカ")
       deliver_address.valid?
-      expect(deliver_address.errors[:family_name_kana]).to include("全角で入力してください")
+      expect(deliver_address).to be_valid
     end
 
     it "family_name_kanaが全角でない場合は登録できないこと" do
@@ -64,7 +64,7 @@ describe DeliverAddress, type: :model do
     it "first_name_kanaが全角である場合は登録できること" do
       deliver_address = build(:deliver_address, first_name_kana: "タロウ")
       deliver_address.valid?
-      expect(deliver_address.errors[:first_name_kana]).to include("全角で入力してください")
+      expect(deliver_address).to be_valid
     end
 
     it "first_name_kanaが全角でない場合は登録できないこと" do
@@ -92,11 +92,9 @@ describe DeliverAddress, type: :model do
     end
 
     it "郵便番号６桁以下は登録できないこと" do
-      deliver_address = build(:deliver_address, zip_code: "111111")
+      deliver_address = build(:deliver_address, zip_code: "11111")
       deliver_address.valid?
-      expect(deliver_address.errors[:zip_code]).to include("is too short (minimum is 6 characters)")
+      expect(deliver_address.errors[:zip_code]).to include("is too short (minimum is 7 characters)")
     end
-
-    
   end
 end
