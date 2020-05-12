@@ -87,7 +87,7 @@
               %span
                 送料込み
           .item__box__detail
-            = @item.explanation
+            = simple_format @item.explanation
           .item__box__table
             %table.table
               %tbody.tbody
@@ -95,7 +95,7 @@
                   %th.th
                     出品者
                   %td.td
-                    hoge
+                    = @user.nickname
                 %tr.tr
                   %th.th
                     カテゴリ
