@@ -7,8 +7,9 @@
     .loginInformationInput__title
       アカウントをお持ちでない方はこちら
       .form_flex
-        %button{type: "submit", class: "regist-btn_blue"}
-          新規会員登録
+        %button{class: "regist-btn_blue"}
+          = link_to new_user_registration_path, class: "list-right__item__btn" do
+            新規会員登録
     .loginInformationInput__content
       .loginInformationInput__content--form
       = form_with model:@user, url: user_session_path, local: true do |f|
