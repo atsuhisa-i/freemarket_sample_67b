@@ -1,4 +1,20 @@
-= render "devise/registrations/regist-header"
+.regist-header
+  .regist-header__inner
+    .wrapper
+      %h1.wrapper__logo
+        = link_to root_path, class: "wrapper__logo__furima" do
+          = image_tag "material/logo/logo.png", class: "stylist-image1"
+      %nav.user-header__nav
+        %ol.user-header__nav__ol
+          %li.active.user-header__nav__ol__progress
+            会員情報
+            .user-header__nav__ol__progress__li
+          %li.user-header__nav__ol__progress
+            住所登録
+            .user-header__nav__ol__progress__li
+          %li.user-header__nav__ol__progress
+            完了
+            .user-header__nav__ol__progress__li
 
 .infomation-input
   .MemberInformationInput
@@ -13,7 +29,7 @@
           %span.form_require
             必須
           %br/
-          = f.text_field :nickname, class: "input_default", placeholder: "例) フリマ 太郎"
+          = f.text_field :nickname, autofocus: true, class: "input_default", placeholder: "例) フリマ 太郎"
           %br/
 
           .form-group
@@ -31,14 +47,17 @@
           %span.form_require
             必須
           %br/
-          = f.password_field :password, autofocus: true, autocomplete: "password", placeholder: "7文字以上の半角英数字", class: "input_default"
+          = f.password_field :password, autocomplete: "password", placeholder: "7文字以上の半角英数字", class: "input_default"
           %p.form_info
             ※ 英字と数字の両方を含めて設定してください
-          %input#password-check{type: "checkbox"}
-          %span
-            パスワードを表示する
+          .form-group
+          %label
+            パスワード再入力
+          %span.form_require
+            必須
           %br/
-
+          = f.password_field :password_confirmation, autocomplete: "password", placeholder: "7文字以上の半角英数字", class: "input_default"
+          %br/
           %label
             お名前(全角) 
           %span.form_require
@@ -62,8 +81,9 @@
             %span.form_require
               必須    
             %br/        
-            .form_flex--birthday
-              = f.date_select :birth_day, {use_month_numbers: true}, default: {year: 2000, month: 1, day: 1}
+            .form_birthday
+              = f.date_select :birth_day, {use_month_numbers: true, with_css_classes:'', prompt:"--", start_year:Time.now.year, end_year:1900}
+              %br/
             %p.form_info
               ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           
