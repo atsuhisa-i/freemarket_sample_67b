@@ -107,6 +107,32 @@
               }
             }
           }
+          &__btn {
+            display: flex;
+            color: $font-white-color;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            .edit {
+              width: 100px;
+              background-color: $main-color;
+            }
+            .delete {
+              width: 100px;
+              background-color: $main-color;
+              margin-left: 20px;
+              padding-right: 10px;
+           }
+          }
+          &__buy {
+            background-color: $main-color;
+            color: $font-white-color;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+          }
           &__option {
             display: flex;
             justify-content: space-between;
