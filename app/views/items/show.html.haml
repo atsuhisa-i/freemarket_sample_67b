@@ -69,15 +69,8 @@
             %ul.image
               - objects = @item.pictures
               - objects.each do |object|
-                %li.image__pict
-                  = image_tag object.image.url, class: "image__pict__size"
-                  %ul.image__pict__multiple
-                    %li.list
-                      = image_tag "material/pict/product3.png", class: "list__size"
-                    %li.list
-                      = image_tag "material/pict/product2.png", class: "list__size"
-                    %li.list
-                      = image_tag "material/pict/product1.png", class: "list__size"
+                %li.list
+                  = image_tag object.image.url, class: "list__size"
           .item__box__price
             %span.price
               = @item.price
@@ -100,14 +93,27 @@
                   %th.th
                     カテゴリ
                   %td.td
-                    = link_to "#", class: "td__color" do
-                      ベビー・キッズ
-                      %br
-                    = link_to "#", class: "td__color" do
-                      ベビー服(男女兼用) ~95cm
-                      %br
-                    = link_to "#", class: "td__color" do
-                      アウター
+                    - if !@item.category.parent_id
+                      = link_to "/", class: "td__color" do
+                        .item-detail-table-sub
+                          = @item.category.name
+                    - elsif !@item.category.parent.parent_id
+                      = link_to "/", class: "td__color" do
+                        .item-detail-table-sub
+                          = @item.category.parent.name
+                      = link_to "/", class: "td__color" do
+                        .item-detail-table-sub__sub
+                          = @item.category.name
+                    - else
+                      = link_to "/", class: "td__color" do
+                        .item-detail-table-sub
+                          = @item.category.parent.parent.name
+                      = link_to "/", class: "td__color" do
+                        .item-detail-table-sub__sub
+                          = @item.category.parent.name
+                      = link_to "/", class: "td__color" do
+                        .item-detail-table-sub__sub__sub
+                          = @item.category.name
                 %tr.tr
                   %th.th
                     ブランド
