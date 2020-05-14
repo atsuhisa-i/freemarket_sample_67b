@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :puroducts, onyl: [:index]
   resources :mypage
   resources :logout
+  resources :card
 end
 
