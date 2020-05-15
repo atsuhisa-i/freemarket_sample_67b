@@ -126,24 +126,24 @@
                     カテゴリ
                   %td.td
                     - if !@item.category.parent_id
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub
                           = @item.category.name
                     - elsif !@item.category.parent.parent_id
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub
                           = @item.category.parent.name
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub__sub
                           = @item.category.name
                     - else
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub
                           = @item.category.parent.parent.name
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub__sub
                           = @item.category.parent.name
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub__sub__sub
                           = @item.category.name
                 %tr.tr
