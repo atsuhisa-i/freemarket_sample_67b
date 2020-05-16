@@ -30,6 +30,14 @@ class ItemsController < ApplicationController
     @comments = @item.comments.includes(:user)
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
 private
 
   def item_params
