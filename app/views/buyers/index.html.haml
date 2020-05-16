@@ -10,16 +10,22 @@
     .pur-main__inner
       .pur-main__inner--content
         .purchase-image
+          = "¥#{@item.pictures[0].image.to_s}", size: '80x80'
         .purchase-text
-          COACHシグネチャーショルダーバッグ
-          ¥5,580 （税込）送料込み	
+          = @item.name
+        .purchase-price
+          %ul
+            %li.price
+              = "¥#{@item.price}"
+            %li.payment
+              = @item.postage_payer	
 
     .pur-main__inner
       .pur-main__inner--content
         .pur-left
           支払い金額
         .pur-right
-          ￥3,333
+          = "¥#{@item.price}"
 
     .pur-main__inner
       .pur-main__inner--content      
