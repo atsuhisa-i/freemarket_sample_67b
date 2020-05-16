@@ -21,10 +21,11 @@ class ItemsController < ApplicationController
       @item.pictures.build
       redirect_to new_item_path
     end
-
   end
 
   def show
+    @item = Item.find(params[:id])
+    @user = @item.seller
   end
 
 private
