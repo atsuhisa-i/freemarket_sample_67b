@@ -1,0 +1,138 @@
+.item__sell__header__logo
+  = link_to root_path do
+    = image_tag "material/logo/logo.png", class: "furima__logo"
+
+= form_with(model: @item, local: true) do |f|
+  .item__input
+    .item__sell__form1
+      .form__frame
+        .item__picture
+          %label.item__picture__label
+            出品画像
+          %span.required
+            必須
+          %p.picture__upper__limit
+            最大５枚までアップロードできます
+        .files__content
+          %label
+            .item-num-0#files__content__form
+              = f.fields_for :pictures do |picture|
+                = picture.file_field :image, name: "item[pictures_attributes][][image]", value:'', class: 'file__upload', id: "img-file"
+                = icon("fa", "camera")
+                %p.how__to__upload
+                  クリックしてファイルをアップロード
+    %hr.style__line
+
+    .item__sell__form2
+      .form__frame
+        .item__name
+          %label.item__name__label 
+            商品名
+          %span.required
+            必須
+        = f.text_field :name, id: 'name', size: 40, placeholder: "40文字まで"
+        .item__explanation
+          %label.item__explanation__label
+            商品説明
+          %span.required
+            必須
+        = f.text_area :explanation, id: 'explanation', size: "40x25", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    %hr.style__line
+
+    .item__sell__form3
+      .form__frame
+        .item__detail
+          商品の詳細
+        .item__category
+          %label.item__category__label
+            カテゴリー
+          %span.required
+            必須
+        = f.collection_select :category_id, Category.all, :id, :name, { include_blank: "選択してください", selected: @item.category_id }, {id: 'category'}
+        .item__size
+          %label.item__size__label
+            サイズ
+          %span.required
+            必須
+        = f.collection_select :size, Fit.all, :name, :name, { include_blank: "選択してください", selected: @item.size }, {id: 'size'}
+        .item__brand
+          %label.item__brand__label
+            ブランド
+          %span.no-required
+            任意
+        = f.fields_for :brand do |brand|
+          = brand.text_field :name, id: 'brand', placeholder: "例）シャネル"
+        .item__condition
+          %label.item__condition__label
+            商品の状態
+          %span.required
+            必須
+        = f.collection_select :condition, Quality.all, :name, :name, { include_blank: "選択してください", selected: @item.condition }, {id: 'condition'}
+    %hr.style__line
+
+    .item__sell__form4
+      .form__frame
+        .about__shipping
+          配送について
+        .item__postage__payer
+          %label.item__postage__payer__label
+            配送料の負担
+          %span.required
+            必須
+        = f.collection_select :postage_payer, Burden.all, :name, :name, { include_blank: "選択してください", selected: @item.postage_payer }, {id:'postage__payer'}
+        .item__shipping__origin
+          %label.item__shipping__origin__label
+            発送元の地域
+          %span.required
+            必須
+        = f.collection_select :shipping_origin, Prefecture.all, :name, :name, { include_blank: "選択してください", selected: @item.shipping_origin }, {id: 'shipping__origin'}
+        .item__days__to__ship
+          %label.item__days__to__ship__label
+            発送までの日数
+          %span.required
+            必須
+        = f.collection_select :days_to_ship, Days.all, :name, :name, { include_blank: "選択してください", selected: @item.days_to_ship }, {id: 'days__to__ship'}
+    %hr.style__line
+
+    .item__sell__form5
+      .form__frame
+        .about__price
+          価格（￥300〜9,999,999）
+        .item__price
+          %label.item__price__label
+            販売価格
+          %span.required
+            必須
+          %span.yen
+            ¥
+          = f.number_field :price, id: 'price', min: 300, max: 9999999, placeholder: '0'
+        .sales__commission
+          .sales__commission__label
+            販売手数料（10％）
+          .sales__commission__value
+            ー
+        %hr.style__line
+        .sales__profit
+          .sales__profit__label
+            販売利益
+          .sales__profit__value
+            ー
+        .item__submit__form
+          = f.submit '変更する', id: 'item__submit'
+          %button{type: 'submit', id: 'item__submit__draft'}
+            下書きに保存
+          = link_to root_path, class: "return__link" do
+            もどる
+        .precautions
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+.item__sell__footer
+  %ul
+    %li
+      プライバシーポリシー
+    %li
+      フリマ利用規約
+    %li
+      特定商取引に関する表記
+  .item__sell__footer__logo
+    = link_to root_path do
+      = image_tag "material/logo/logo-white.png", class: "furima__white__logo"
