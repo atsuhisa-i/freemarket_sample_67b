@@ -183,7 +183,7 @@
                 = link_to "#", class: "edit" do
                   編集
               %ul.delete
-                = link_to "#", class: "delete" do
+                = link_to item_path(@item.id), method: :delete, class: "delete" do
                   削除
           - elsif user_signed_in?
             .item__box__buy
