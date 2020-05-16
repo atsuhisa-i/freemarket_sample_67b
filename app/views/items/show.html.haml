@@ -219,15 +219,15 @@
             %strong
               %p
                 ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
-        .item__box__comments
-          %h4
-            コメント一覧
-          - if @comments 
-            = @comments.each do |comment|
-              %p
-                %strong
-                  = link_to "#", class: "aaaaa" do
+          .comments
+            %h4
+              <コメント一覧>
+            - if @comments 
+              - @comments.each do |comment|
+                %p
+                  %strong
                     = comment.user.nickname
+                  = comment.text
       %ul.main__show__links
         %li.link
           = link_to "#", class: "link__btn" do
