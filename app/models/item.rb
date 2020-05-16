@@ -5,7 +5,6 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true
   has_many :comments, dependent: :destroy
   has_many :pictures, dependent: :destroy
-  has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :pictures, allow_destroy: true
   accepts_nested_attributes_for :brand, allow_destroy: true
   enum trading_status: { selling: 0, sold: 1 }
