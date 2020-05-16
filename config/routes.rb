@@ -14,4 +14,3 @@ Rails.application.routes.draw do
   end
   resources :puroducts, onyl: [:index]
 end
-
