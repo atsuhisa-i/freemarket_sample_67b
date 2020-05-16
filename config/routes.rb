@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :mypage
   resources :logout
   resources :card
+  resources :card_registrations
 end
 
