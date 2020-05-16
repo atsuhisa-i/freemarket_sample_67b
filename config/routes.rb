@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
 
   root "items#index"
-  resources :items, only: [:new, :create, :show]
+  resources :items, only: [:new, :create, :show] do
+    resources :comments, only: :create
+  end
   resources :puroducts, onyl: [:index]
 end
 
