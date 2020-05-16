@@ -35,29 +35,61 @@
               新規会員登録
 %nav.category
   %ul.category__ul
-    %li.category__ul__li
-      = link_to "#", class: "btn" do
-        FURIMA
-    %li.category__ul__li
-      = icon('fa', 'angle-right')
-    %li.category__ul__li
-      = link_to "#", class: "btn" do
-        = @item.category.parent.parent.name
-    %li.category__ul__li
-      = icon('fa', 'angle-right')
-    %li.category__ul__li
-      = link_to "#", class: "btn" do
-        = @item.category.parent.name
-    %li.category__ul__li
-      = icon('fa', 'angle-right')
-    %li.category__ul__li
-      = link_to "#", class: "btn" do
-        = @item.category.name
-    %li.category__ul__li
-      = icon('fa', 'angle-right')
-    %li.category__ul__li
-      = link_to "#", class: "btn-bold" do
-        = @item.name
+    - if !@item.category.parent_id
+      %li.category__ul__li
+        = link_to "#", class: "btn" do
+          FURIMA
+      %li.category__ul__li
+        = link_to "#", class: "btn" do
+          = @item.category.name
+      %li.category__ul__li
+        = icon('fa', 'angle-right')
+      %li.category__ul__li
+        = link_to "#", class: "btn-bold" do
+          = @item.name
+    - elsif !@item.category.parent.parent_id
+      %li.category__ul__li
+        = link_to "#", class: "btn" do
+          FURIMA
+      %li.category__ul__li
+        = icon('fa', 'angle-right')
+      %li.category__ul__li
+        = link_to "#", class: "btn" do
+          = @item.category.parent.name
+      %li.category__ul__li
+        = icon('fa', 'angle-right')
+      %li.category__ul__li
+        = link_to "#", class: "btn" do
+          = @item.category.name
+      %li.category__ul__li
+        = icon('fa', 'angle-right')
+      %li.category__ul__li
+        = link_to "#", class: "btn-bold" do
+          = @item.name
+    - else
+      %li.category__ul__li
+        = link_to "#", class: "btn" do
+          FURIMA
+      %li.category__ul__li
+        = icon('fa', 'angle-right')
+      %li.category__ul__li
+        = link_to "#", class: "btn" do
+          = @item.category.parent.parent.name
+      %li.category__ul__li
+        = icon('fa', 'angle-right')
+      %li.category__ul__li
+        = link_to "#", class: "btn" do
+          = @item.category.parent.name
+      %li.category__ul__li
+        = icon('fa', 'angle-right')
+      %li.category__ul__li
+        = link_to "#", class: "btn" do
+          = @item.category.name
+      %li.category__ul__li
+        = icon('fa', 'angle-right')
+      %li.category__ul__li
+        = link_to "#", class: "btn-bold" do
+          = @item.name
 .main
   .main__show
     .main__show__content
@@ -94,24 +126,24 @@
                     カテゴリ
                   %td.td
                     - if !@item.category.parent_id
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub
                           = @item.category.name
                     - elsif !@item.category.parent.parent_id
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub
                           = @item.category.parent.name
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub__sub
                           = @item.category.name
                     - else
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub
                           = @item.category.parent.parent.name
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub__sub
                           = @item.category.parent.name
-                      = link_to "/", class: "td__color" do
+                      = link_to "#", class: "td__color" do
                         .item-detail-table-sub__sub__sub
                           = @item.category.name
                 %tr.tr
