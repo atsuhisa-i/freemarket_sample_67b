@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   resources :logins
   resources :puroducts, onyl: [:index]
   resources :users, only: [:show, :new, :index]
-  resources :logout
-  resources :card
-  resources :card_registrations
-  resources :cards, only: [:new, :create, :index, :destroy, :show]
-  resources :mypage
+  resources :logout, only: [:show]
+  resources :card, only: [:new]
+  resources :card_registrations, only: [:new]
+  resources :cards, only: [:show]
+  resources :mypage, only: [:show]
 end
 
