@@ -1,0 +1,216 @@
+.header
+  .header__inner
+    .wrapper
+      %h1.wrapper__logo
+        = link_to root_path, class: "wrapper__logo__furima" do
+          = image_tag "material/logo/logo.png", class: "stylist-image1"
+      .wrapper__search-box
+        %form.wrapper__search-box__form
+          %input{type: 'text', class: 'form-text', placeholder: "キーワードから探す"}
+          %button{type: 'submit', class: 'form-submit'}
+            .form-submit__logo
+              = image_tag "material/icon/icon-search 1.png", class: "stylist-image2"
+    .navigation
+      %ul.list-left
+        %li.list-left__item
+          = link_to "#", class: "list-left__item__category" do
+            カテゴリー
+        %li.list-left__item__btn
+          = link_to "#", class: "burand" do
+            ブランド
+      %ul.list-right
+        - if user_signed_in?
+          %li.list-right__item
+            = link_to destroy_user_session_path, method: :delete, class: "list-right__item__btn" do
+              ログアウト
+          %li.list-right__item
+            = link_to "#", class: "list-right__item__btn" do
+              マイページ
+        - else
+          %li.list-right__item
+            = link_to new_user_session_path, class: "list-right__item__btn" do
+              ログイン
+          %li.list-right__item
+            = link_to new_user_registration_path, class: "list-right__item__btn" do
+              新規会員登録
+.main
+  %section.main__image
+    .main__image__contents
+      %h2.title 
+        %br
+        人生を変えるフリマアプリ
+      %p.text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br 
+        フリマアプリです
+      .main-btn
+        = link_to "#", class: "main-btn__apple" do
+          = image_tag "material/pict/app.svg", class: "btn"
+        = link_to "#", class: "main-btn__google" do
+          = image_tag "material/pict/google.svg", class: "btn"
+  %section.top-explanation
+    %h2.top-explanation__text
+      FURIMAが選ばれる3つの理由
+    %ul.lists 
+      %li.list
+        .list__picture
+          %span.number
+            1
+          = image_tag "material/pict/pict-reason-01.jpg", class: "img"
+        %h3.list__text
+          %span
+            3分
+          ですぐに出品
+        %p.list__explanation
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list__picture
+          %span.number
+            2
+          = image_tag "material/pict/pict-reason-02.jpg", class: "img"
+        %h3.list__text
+          %span
+            シンプル
+          で使いやすい
+        %p.list__explanation
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list
+        .list__picture
+          %span.number
+            3
+          = image_tag "material/pict/pict-reason-03.jpg", class: "img"
+        %h3.list__text
+          手数料
+          %span
+            業界最安
+        %p.list__explanation
+          最大3%でお得に出品&購入！
+  %section.middle-image
+    .middle-image__contents
+      %h2.middle-image__contents__title
+        会員数日本一位
+      %p.middle-image__contents__text
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .middle-image__contents__btn
+        = link_to "#", class: "middle-image__contents__btn__apple" do
+          = image_tag "material/pict/app.svg", class: "btn"
+        = link_to "#", class: "main-btn__google" do
+          = image_tag "material/pict/google.svg", class: "btn"
+  %section.middle-explanation
+    %h2.middle-explanation__text
+      FURIMAの特徴
+    %ul.lists 
+      %li.list
+        .list__picture
+          = image_tag "material/icon/icon-01.png", class: "img"
+        %h3.list__text
+          簡単に売り買いできる
+        %p.list__explanation
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %li.list
+        .list__picture
+          = image_tag "material/icon/icon-03.png", class: "img"
+        %h3.list__text
+          売上金は即日振込みに対応
+        %p.list__explanation
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %li.list
+        .list__picture
+          = image_tag "material/icon/icon-04.png", class: "img"
+        %h3.list__text
+          様々な支払いに対応
+        %p.list__explanation
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.pickup
+    %h2.pickup__text
+      ピックアップカテゴリー
+    .pickup__box
+      .pickup__box__text
+        = link_to "#", class: "pickup__box__text__link" do
+          %h3.title
+            新規投稿商品
+      .pickup__box__lists
+        - @items.each do |item|
+          .list
+            = link_to item_path(item.id), class: "list__link" do
+              %figure.list__link__image
+                = image_tag item.pictures[0].image.to_s, size: '220x150'
+              .list__link__body
+                %h3.name
+                  = item.name
+                .detai
+                  %ul.detai__lists
+                    %li
+                      = item.price
+                    %li
+                      %i.fa.fa-star
+                      0
+                  %p
+                    (税込)
+
+%aside.app-banner
+  .app-banner__box
+    %h2.app-banner__box__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.app-banner__box__text
+      今すぐ無料ダウンロード！
+    .app-banner__box__icon
+      = link_to "#", class: "main-btn__apple" do
+        = image_tag "material/pict/app.svg", class: "btn"
+      = link_to "#", class: "main-btn__google" do
+        = image_tag "material/pict/google.svg", class: "btn"
+.foter
+  %ul.foter__contents
+    %li.content
+      %h2.content__head
+        FURIMAについて
+      %ul.content__list
+        %li.content__list__text
+          = link_to "#", class: "text" do
+            会社概要（運営会社）
+        %li.content__list__text
+          = link_to "#", class: "text" do
+            プライバシーポリシー
+        %li.content__list__text
+          = link_to "#", class: "text" do
+            FURIMA利用規約
+        %li.content__list__text
+          = link_to "#", class: "text" do
+            ポイントに関する特約
+    %li.content
+      %h2.content__head
+        FURIMAを見る
+      %ul.content__list
+        %li.content__list__text
+          = link_to "#", class: "text" do
+            カテゴリー一覧
+        %li.content__list__text
+          = link_to "#", class: "text" do
+            ブランド一覧
+    %li.content
+      %h2.content__head
+        ヘルプ＆ガイド
+      %ul.content__list
+        %li.content__list__text
+          = link_to "#", class: "text" do
+            FURIMAガイド
+        %li.content__list__text
+          = link_to "#", class: "text" do
+            FURIMAロゴ利用ガイドライン
+        %li.content__list__text
+          = link_to "#", class: "text" do
+            お知らせ
+  .foter__logo
+    = link_to "#", class: "furima-logo" do
+      = image_tag "material/logo/logo-white.png", class: "img"
+    %p
+      © FURIMA
+= link_to new_item_path, class: "display" do
+  .display__btn
+    %span.display__btn__text
+      出品する
+    = image_tag  "material/icon/icon_camera.png", class: "img"

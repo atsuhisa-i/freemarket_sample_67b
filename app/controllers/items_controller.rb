@@ -1,28 +1,46 @@
 class ItemsController < ApplicationController
+  def index
+    @items = Item.all.includes(:pictures).order('created_at DESC')
+  end
+
   def new
-    @item = Item.new
-    @item.pictures.build
-    @item.build_category
-    @item.build_brand
-    @categories = Category.all
+    if user_signed_in?
+      @item = Item.new
+      @item.pictures.build
+      @item.build_brand
+    else
+      redirect_to root_path
+    end
   end
 
   def create
-    @item = current_user.items.build(item_params)
+    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
-      render :new
+      @item.pictures.build
+      redirect_to new_item_path
     end
-
   end
 
   def show
+    @item = Item.find(params[:id])
+    @user = @item.seller
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
 private
 
   def item_params
-    params.require(:item).permit(:name, :explanation, :size, :condition, :postage_payer, :shipping_origin, :days_to_ship, :price, :trading_status, pictures_attributes: [:image], category_attributes: [:name], brand_attributes: [:name]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :explanation, :size, :category_id, :condition, :postage_payer, :shipping_origin, :days_to_ship, :price, :trading_status, pictures_attributes: [:image], brand_attributes: [:name]).merge(seller_id: current_user.id)
   end
 end
