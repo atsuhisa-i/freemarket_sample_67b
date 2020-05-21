@@ -12,5 +12,12 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items, only: [:new, :create, :show]
   resources :puroducts, onyl: [:index]
+
+  resources :credit_cards, only: [:new, :create, :show] do
+    # collection do
+      # get 'show', to: 'credit_cards#show'
+      # post 'delete', to: 'credit_cards#delete'
+    # end
+  end
 end
 
