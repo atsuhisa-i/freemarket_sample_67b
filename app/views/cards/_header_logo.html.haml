@@ -13,27 +13,33 @@
     .header-main__search-bar2
       .header-main__search-bar2__genre-search
         .header-main__search-bar2__genre-search__category-search
-          %a.header-main__search-bar2__genre-search__category-search__category-image{href: "/jp/category"}
+          .header-main__search-bar2__genre-search__category-search__category-image
+          = link_to "/jp/category" do
             %i.fas.fa-bars
             %font{size: "2"} カテゴリーから探す
         .header-main__search-bar2__genre-search__brands-search
-          %a.header-main__search-bar2__genre-search__brands-search__brands-image{href: "/jp/brands"}
+          .header-main__search-bar2__genre-search__brands-search__brands-image
+          = link_to "/jp/brands" do
             %i.fas.fa-tag
             %font{size: "2"} ブランドから探す
       %ul.header-main__search-bar2__auth-box
         %li.header-main__search-bar2__auth-box__iine
-          %a.iine-image{href: "/jp/iine"}
+          .iine-image
+          = link_to "/jp/iine" do
             %i.far.fa-heart
-            %font{size: "2"} いいね！一覧
+            %font{size: "2"} いいね！！一覧
         %li.header-main__search-bar2__auth-box__notice
-          %a.notice-image{href:"/jp/notice"}
+          .notice-image
+          = link_to "/jp/notice" do
             %i.far.fa-bell
             %font{size: "2"} お知らせ
         %li.header-main__search-bar2__auth-box__todo
-          %a.todo-image{href: "/jp/todo"}
+          .todo-image
+          = link_to "/jp/todo" do
             %i.fas.fa-check
             %font{size: "2"} やることリスト
         %li.header-main__search-bar2__auth-box__mypage
-          %a.mypage-image{href: "/jp/mypage"}
+          .mypage-image
+          = link_to "/jp/mypage" do
             %i.far.fa-smile
             %font{size: "2"} マイページ
