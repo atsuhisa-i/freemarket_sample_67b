@@ -1,0 +1,45 @@
+.header
+  .header-main
+    .header-main__search-bar1
+      .header-main__search-bar1__logo-button
+        = image_tag "material/logo/logo.png", class: "stylist-image1"
+      .header-main__search-bar1__text
+        = form_for "#" do |f|
+          = f.text_field :text, class: 'header-main__search-bar1__text__form', placeholder: '何かお探しですか？'
+        .header-main__search-bar1__text__box
+          %label{class: "input-box__image"}
+            = icon('fas', 'search', class: 'header-main__search-bar1__text__box__icon')
+            %button.header-main__search-bar1__text__box__button
+    .header-main__search-bar2
+      .header-main__search-bar2__genre-search
+        .header-main__search-bar2__genre-search__category-search
+          .header-main__search-bar2__genre-search__category-search__category-image
+          = link_to "/jp/category" do
+            %i.fas.fa-bars
+            %font{size: "2"} カテゴリーから探す
+        .header-main__search-bar2__genre-search__brands-search
+          .header-main__search-bar2__genre-search__brands-search__brands-image
+          = link_to "/jp/brands" do
+            %i.fas.fa-tag
+            %font{size: "2"} ブランドから探す
+      %ul.header-main__search-bar2__auth-box
+        %li.header-main__search-bar2__auth-box__iine
+          .iine-image
+          = link_to "/jp/iine" do
+            %i.far.fa-heart
+            %font{size: "2"} いいね！！一覧
+        %li.header-main__search-bar2__auth-box__notice
+          .notice-image
+          = link_to "/jp/notice" do
+            %i.far.fa-bell
+            %font{size: "2"} お知らせ
+        %li.header-main__search-bar2__auth-box__todo
+          .todo-image
+          = link_to "/jp/todo" do
+            %i.fas.fa-check
+            %font{size: "2"} やることリスト
+        %li.header-main__search-bar2__auth-box__mypage
+          .mypage-image
+          = link_to "/jp/mypage" do
+            %i.far.fa-smile
+            %font{size: "2"} マイページ

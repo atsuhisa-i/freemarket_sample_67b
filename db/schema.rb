@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 2020_05_14_121836) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "condition_id"
     t.string "quality"
@@ -89,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_121836) do
     t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.string "condition", null: false
-    t.integer "postage_payer", null: false
+    t.string "postage_payer", null: false
     t.string "shipping_origin", null: false
     t.string "days_to_ship", null: false
     t.integer "price", null: false

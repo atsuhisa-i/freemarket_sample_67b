@@ -21,12 +21,23 @@ class ItemsController < ApplicationController
       @item.pictures.build
       redirect_to new_item_path
     end
-
   end
 
   def show
+    @item = Item.find(params[:id])
+    @user = @item.seller
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
 private
 
   def item_params

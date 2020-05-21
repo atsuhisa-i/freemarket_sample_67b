@@ -1,0 +1,89 @@
+.content-all 
+  .content-all__right
+    %section.content-all__right__image
+      = image_tag "material/logo/logo.png",size: "700x206", class:"content-all__right__image-images" 
+      = image_tag "material/pict/product1.png",size: "60x60", class: "content-all__right__image__profile__image"
+      = link_to '#', class: 'content-all__right__image__profile__image__profile__name' do
+        name
+        .value-items 評価 8   出品数 30
+
+  .tabs
+    %input#all{checked: "checked", name: "tab_item", type: "radio"}/
+    %label.tab_item{for: "all"} お知らせ
+    %input#programming{name: "tab_item", type: "radio"}/
+    %label.tab_item{for: "programming"} やることリスト
+    #all_content.tab_content
+      %li.tab_content_description
+        %section.image-middle
+          = image_tag "material/pict/product1.png", class: "btn",size: "48x48"
+          %section.tab_content_middle 
+            今ならやることキャンペーン
+            %section.tab_content_middle_middle
+            %i.far.fa-clock １日前
+        %section.tab_content_right
+          %i.fa.fa-angle-right
+    #all_content.tab_content
+      %li.tab_content_description
+        %section.image-middle
+          = image_tag "material/pict/product1.png", class: "btn",size: "48x48"
+          %section.tab_content_middle 
+            今だとすぐ売れるキャンペーン
+            %section.tab_content_middle_middle
+            %i.far.fa-clock 2日前
+        %section.tab_content_right
+          %i.fa.fa-angle-right
+    #all_content.tab_content
+      %li.tab_content_description
+        %section.image-middle
+          = image_tag "material/pict/product1.png", class: "btn",size: "48x48"
+          %section.tab_content_middle 
+            100000Pプレゼント
+            %section.tab_content_middle_middle
+            %i.far.fa-clock 3日前
+        %section.tab_content_right
+          %i.fa.fa-angle-right
+    #all_content.tab_content
+      %li.tab_content_description
+        %section.image-middle
+          = image_tag "material/pict/product1.png", class: "btn",size: "48x48"
+          %section.tab_content_middle 
+            ちょっとちょっと
+            %section.tab_content_middle_middle
+            %i.far.fa-clock 5日前
+        %section.tab_content_right
+          %i.fa.fa-angle-right
+    #all_content.tab_content
+      %li.tab_content_description
+        %section.image-middle
+          = image_tag "material/pict/product1.png", class: "btn",size: "48x48"
+          %section.tab_content_middle 
+            さすがにやばい
+            %section.tab_content_middle_middle
+            %i.far.fa-clock 9日前
+        %section.tab_content_right
+          %i.fa.fa-angle-right 
+    #all_content.tab_content
+      %li.tab_content_description
+        %section.image-bottom
+          = link_to '#', class: 'btn-icon' do
+            一覧を見る
+    
+    #programming_content.tab_content
+      .tab_content_description
+      = image_tag src="/assets/logo_gray.svg",size: "200x200", class:"all-image" 
+      %p.c-txtsp 現在やることリストはありません   
+    
+  .under-tab-content
+    .tab__head 
+      購入した商品
+    .tab_footer
+      %input#tab-1{checked:"checked", name: "tab-radio", type: "radio"}/
+      %label.tab-label{for:"tab-1"} 取引中
+      %input#tab-2{name: "tab-radio", type: "radio"}/
+      %label.tab-label{for: "tab-2"} 過去の取引
+      .tab-content.tab-1-content
+        -# = image_tag src="logo_gray.svg",size: "200x200", class:"all-image" 
+        %p.c-txtsp 取引中の商品はありません
+      .tab-content.tab-2-content
+        -# = image_tag src="logo_gray.svg",size: "200x200", class:"all-image" 
+        %p.c-txtsp 取引中の商品はありま--ん
