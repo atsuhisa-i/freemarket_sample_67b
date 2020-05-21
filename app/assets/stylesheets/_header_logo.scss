@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.header {
+  height: 100px;
+  width: 100vw;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+
+  .header-main {
+    width: 75%;
+    position: absolute;
+    left: 15%;
+    top:10px;
+
+    .header-main__search-bar1 {
+      height: 50px;
+      width: 100%;
+      display: flex;
+
+      &__logo-button {
+        height: 100%;
+        width: 20%;
+        
+        &__image {
+          height: 80%;
+        }
+        .stylist-image1{
+          width: 140px;
+          height: 40.55px;
+          vertical-align: bottom;
+      
+        }
+      }
+      &__text {
+        width: 100%;
+        position: relative;
+        input[type="text"] {
+        width: 95%;
+        height: 40px;
+        background-color: rgb(245, 245, 245);
+        border-color: rgb(204, 204, 204);
+        border-radius: 4px;
+        border-style: solid;
+        border-width: 1px;
+        line-height: 1.4em;
+        }
+        &__form{
+
+        }
+        &__box {
+          position: absolute;
+          right: 60px;
+          top:10px;
+          
+          &__icon{
+            font-size: 14px;
+          }
+          &__button{
+            display: none;
+      
+               
+              }
+            }
+          }
+        }
+      
+
+    .header-main__search-bar2 {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &__genre-search {
+        height: 50px;
+        width: 30%;
+        display: flex;
+        line-height: px;
+        font-weight: 600;
+        padding-top: 10px;
+        &__category-search {
+          width: 50%;
+          &__category-image{
+            color: black;
+            i{
+              color:skyblue;
+            }
+          }
+        }
+        &__brands-search {
+          width: 50%;
+          &__brands-image {
+            color: black;
+            i{
+              color:skyblue
+            }
+          }
+        }
+      }
+      &__auth-box {
+        height: 50px;
+        width: 56%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        padding: 5px;
+        i{
+          color: gray;
+        }
+        font{
+          color: black;
+          font-size: 14px;
+        }
+        &__iine {
+          width: 25%;
+          list-style: none;
+        }
+        &__notice {
+          width: 25%;
+          list-style: none;
+        }
+        &__todo {
+          width: 25%;
+          list-style: none;
+        }
+        &__mypage {
+          width: 25%;
+          list-style: none;
+        }
+      }        
+    }
+  }
+}
