@@ -14,13 +14,26 @@
           %p.picture__upper__limit
             最大５枚までアップロードできます
         .files__content
+          #previews
+            - if @item.persisted?
+              - @item.pictures.each_with_index do |picture, i|
+                = image_tag picture.src.url, data: {index: i}, width:"100", height:"100"
           %label
-            .item-num-0#files__content__form
+            #files__content__form
               = f.fields_for :pictures do |picture|
-                = picture.file_field :image, name: "item[pictures_attributes][][image]", value:'', class: 'file__upload', id: "img-file"
-                = icon("fa", "camera")
+                .js-file_group{ "data-index": "#{ picture.index }"}
+                  = picture.file_field :image, class: 'file__upload'
+                  = icon("fa", "camera")
+                  %span.js-remove
                 %p.how__to__upload
                   クリックしてファイルをアップロード
+                - if @item.persisted?
+                  = picture.check_box :_destroy, data:{ index: picture.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{ "data-index": "#{ @item.pictures.count }"}
+                  = file_field_tag :image, name: "product[pictures_attributes][#{@item.pictures.count}][image]", class: 'file__upload'
+                  .js-remove
+                    削除
     %hr.style__line
 
     .item__sell__form2
