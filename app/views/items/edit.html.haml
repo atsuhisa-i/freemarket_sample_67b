@@ -15,9 +15,12 @@
             最大５枚までアップロードできます
         .files__content
           %label
+            -# - @item.pictures.each do |picture|
+            -#   = image_tag picture.image.url
             .item-num-0#files__content__form
               = f.fields_for :pictures do |picture|
-                = picture.file_field :image, name: "item[pictures_attributes][][image]", value:'', class: 'file__upload', id: "img-file"
+                = image_tag picture.object.image.url
+                = picture.file_field :image, value:'', class: 'file__upload', id: "img-file"
                 = icon("fa", "camera")
                 %p.how__to__upload
                   クリックしてファイルをアップロード
