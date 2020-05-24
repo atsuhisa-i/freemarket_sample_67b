@@ -40,8 +40,8 @@ $(document).on('turbolinks:load', ()=> {
   $('.files__content').on('click', '.js-remove', function() {
     const targetIndex = $(this).data('index');
     // 編集画面用
-    // const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    // if (hiddenCheck) hiddenCheck.prop('checked', true);
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
 
     $(`#item_pictures_attributes_${targetIndex}_image`).remove();
     $(this).parent().remove();
