@@ -1,0 +1,507 @@
+.edit-item__input {
+  background-color: whitesmoke;
+  text-align: center;
+  .item__sell__form1 {
+    display: inline-block;
+    text-align: left;
+    .form__frame {
+      background-color: white;
+      height: 300px;
+      width: 700px;
+      padding: 40px 40px;
+      .item__picture {
+        &__label {
+        font-size: 14px;
+        font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      .picture__upper__limit {
+        font-size: 14px;
+        margin-top: 16px;
+      }
+      .files__content {
+        margin-top: 16px;
+        height: 150px;
+        position: relative;
+        .item-image {
+          display: inline-block;
+        }
+        .item-num-1{
+          width: 491px;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        .item-num-2{
+          width: 363px;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        .item-num-3{
+          width: 234px;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        .item-num-4{
+          width: 106px;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        #files__content__form{
+          text-align: center;
+          height:  150px;
+          border-style: dashed;
+          border-width: 1px;
+          border-color: rgb(204, 204, 204);
+          background-color: rgb(245, 245, 245);
+          cursor: pointer;
+          .js-file_group {
+            .file__upload {
+              cursor: pointer;
+              display: none;
+            }
+          }
+          .fa {
+            cursor: pointer;
+            font-size: 22px;
+            margin-bottom: 8px;
+            margin-top: 40px;
+          }
+          .how__to__upload {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+ 
+  .item__sell__form2 {
+    display: inline-block;
+    text-align: left;
+    .form__frame {
+      background-color: white;
+      height: 416px;
+      width: 700px;
+      padding: 40px 40px;
+      .item__name {
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      #name {
+        margin-top: 16px;
+        width: 620px;
+        height: 48px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        padding: 0 16px;
+      }
+      .item__explanation {
+        margin-top: 32px;
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      #explanation {
+        margin-top: 16px;
+        width: 620px;
+        height: 154px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 13px 16px;
+        font-size: 16px;
+      }
+    }    
+  }
+
+  .item__sell__form3 {
+    display: inline-block;
+    text-align: left;
+    .form__frame {
+      background-color: white;
+      height: 570px;
+      width: 700px;
+      padding: 40px 40px;
+      .item__detail {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        color: rgb(136, 136, 136);
+        margin-bottom: 24px;
+      }
+      .item__category {
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      #category {
+        width: 620px;
+        height: 48px;
+        margin-top: 16px;
+        padding: 0 56px 0 16px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .item__size {
+        margin-top: 32px;
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      #size {
+        width: 620px;
+        height: 48px;
+        margin-top: 16px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0 56px 0 16px;
+      }
+      .item__brand {
+        margin-top: 32px;
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .no-required {
+          font-size: 12px;
+          padding: 0 4px;
+          display: inline-block;
+          background-color: #bfbfbf;
+          color: #fff;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      #brand {
+        width: 620px;
+        height: 48px;
+        margin-top: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0 16px;
+      }
+      .item__condition {
+        margin-top: 32px;
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      #condition {
+        width: 620px;
+        height: 48px;
+        margin-top: 16px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0 56px 0 16px;
+      }
+    }
+  }
+
+  .item__sell__form4 {
+    display: inline-block;
+    text-align: left;
+    .form__frame {
+      background-color: white;
+      height: 444px;
+      width: 700px;
+      padding: 40px 40px;
+      .about__shipping {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        color: rgb(136, 136, 136);
+        margin-bottom: 24px;
+      }
+      .item__postage__payer {
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      #postage__payer {
+        width: 620px;
+        height: 48px;
+        margin-top: 16px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0 56px 0 16px;
+      }
+      .item__shipping__origin {
+        margin-top: 32px;
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      #shipping__origin {
+        width: 620px;
+        height: 48px;
+        margin-top: 16px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0 56px 0 16px;
+      }
+      .item__days__to__ship {
+        margin-top: 32px;
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+        }
+      }
+      #days__to__ship {
+        width: 620px;
+        height: 48px;
+        margin-top: 16px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0 56px 0 16px;
+      }
+    }
+  }
+
+  .item__sell__form5 {
+    display: inline-block;
+    text-align: left;
+    .form__frame{
+    background-color: white;
+    height: 600px;
+    width: 700px;
+    padding: 40px 40px;
+      .about__price {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        color: rgb(136, 136, 136);
+        margin-bottom: 24px;
+      }
+      .item__price {
+        &__label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .required {
+          font-size: 12px;
+          background-color: red;
+          color: #fff;
+          padding: 0 4px;
+          display: inline-block;
+          line-height: 1.4em;
+          font-weight: 600;
+          border-radius: 2px;
+          margin-left: 8px;
+          margin-right: 195px;
+        }
+        .yen {
+          font-size: 14px;
+          margin: 0 8px 0 ;
+        }
+        #price {
+          width: 285px;
+          height: 48px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          text-align: right;
+        }
+      }
+      .sales__commission {
+        display: flex;
+        width: 620px;
+        height: 70px;
+        padding: 12px 0;
+        &__label {
+          width: 128px;
+          height: 20px;
+          font-size: 14px;
+          line-height: 46px;
+          margin-right: 466px;
+        }
+        &__value {
+          width: 14px;
+          height: 20px;
+          line-height: 46px;
+        }
+      }
+      .style__line {
+        border-top-color: #efefef;
+        border-top-style: solid;
+        border-bottom: 0 solid;
+        width: 620px;
+        display: block;
+        margin-inline-start: auto;
+      }
+      .sales__profit {
+        display: flex;
+        width: 620px;
+        height: 70px;
+        padding: 12px 0;
+        &__label {
+          width: 120px;
+          height: 20px;
+          font-size: 14px;
+          line-height: 46px;
+          margin-right: 475px;
+        }
+        &__value {
+          width: 14px;
+          height: 20px;
+          line-height: 46px;
+        }
+      }
+      .item__submit__form {
+        margin-top: 40px;
+        text-align: center;
+        #item__submit {
+          width: 360px;
+          height: 48px;
+          font-size: 17px;
+          border-radius: 4px;
+          font-weight: 600;
+          margin-bottom: 24px;
+          cursor: pointer;
+          background-color: #ea352d;
+          color: #fff;
+        }
+        #item__submit__draft {
+          width: 360px;
+          height: 48px;
+          font-size: 17px;
+          border-radius: 4px;
+          font-weight: 600;
+          margin-bottom: 24px;
+          cursor: pointer;
+          background-color: #ccc;
+        }
+        .return__link {
+          display: block;
+          text-decoration: none;
+          color: #0095ee;
+          font-size: 14px;
+          margin-bottom: 24px;
+          cursor: pointer;
+        }
+      }
+      .precautions {
+        font-size: 12px;
+      }
+    }
+  }
+}
