@@ -9,24 +9,13 @@ Rails.application.routes.draw do
     post 'deliver_addresses', to: 'users/registrations#create_deliver_address'
   end
 
+  resources :users, only: [:index, :show, :edit] do
+    resources :credit_cards, only: [:new, :create, :show, :destroy]
+  end
+
   root "items#index"
   resources :items, only: [:new, :create, :show, :destroy] do
     resources :comments, only: :create
   end
   resources :puroducts, onyl: [:index]
-
-  resources :credit_cards, only: [:new, :create, :show] do
-    # collection do
-      # get 'show', to: 'credit_cards#show'
-      # post 'delete', to: 'credit_cards#delete'
-    # end
-  end
-  
-  resources :users, only: [:show, :new, :index]
-  resources :logout, only: [:show]
-  resources :card, only: [:new]
-  resources :card_registrations, only: [:new]
-  resources :cards, only: [:show]
-  resources :mypage, only: [:show]
 end
-
