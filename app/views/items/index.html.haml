@@ -24,7 +24,7 @@
             = link_to destroy_user_session_path, method: :delete, class: "list-right__item__btn" do
               ログアウト
           %li.list-right__item
-            = link_to "#", class: "list-right__item__btn" do
+            = link_to users_path, class: "list-right__item__btn" do
               マイページ
         - else
           %li.list-right__item
