@@ -1,6 +1,6 @@
 .mypage-content.signup-main
       %h2.signup-main__chapter-head クレジットカード情報入力
-      = form_with model: @card, url: '/card/pay/', method: 'POST', id: 'charge-form', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate', html: { name: 'inputForm' } do |f|
+      = form_with model:@credit_card, url: user_credit_cards_path, method: 'POST', id: 'charge-form', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate', html: { name: 'inputForm' } do |f|
             %label{ for: 'payment_card_no' } カード番号
             %span.signup-main__form-require 必須
             %input.signup-main__input-default{ type: 'text', id: 'card_number', placeholder: '半角数字のみ', maxlength: '19' }

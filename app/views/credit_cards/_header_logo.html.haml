@@ -2,7 +2,8 @@
   .header-main
     .header-main__search-bar1
       .header-main__search-bar1__logo-button
-        = image_tag "material/logo/logo.png", class: "stylist-image1"
+        = link_to root_path do
+          = image_tag "material/logo/logo.png", class: "stylist-image1"
       .header-main__search-bar1__text
         = form_for "#" do |f|
           = f.text_field :text, class: 'header-main__search-bar1__text__form', placeholder: '何かお探しですか？'
@@ -40,6 +41,6 @@
             %font{size: "2"} やることリスト
         %li.header-main__search-bar2__auth-box__mypage
           .mypage-image
-          = link_to "/jp/mypage" do
+          = link_to users_path do
             %i.far.fa-smile
             %font{size: "2"} マイページ

@@ -63,7 +63,7 @@
         発送先・お届け先住所変更
       %li
       = link_to '#', class: 'left-content__list-item' do
-        支払い方法
+        支払い方法登録
       %li
       = link_to '#', class: 'left-content__list-item' do
         メール/パスワード
@@ -74,5 +74,5 @@
       = link_to '#', class: 'left-content__list-item' do
         電話番号の確認
       %li
-      = link_to '#', class: 'left-content__list-item' do
+      = link_to destroy_user_session_path, method: :delete, class: 'left-content__list-item' do
         ログアウト

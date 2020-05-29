@@ -1,11 +1,9 @@
 .content-all 
   .content-all__right
     %section.content-all__right__image
-      = image_tag "material/logo/logo.png",size: "700x206", class:"content-all__right__image-images" 
-      = image_tag "material/pict/product1.png",size: "60x60", class: "content-all__right__image__profile__image"
       = link_to '#', class: 'content-all__right__image__profile__image__profile__name' do
-        name
-        .value-items 評価 8   出品数 30
+        #{current_user.nickname}さんのマイページ
+      .value-items 評価 8   出品数 30
 
   .tabs
     %input#all{checked: "checked", name: "tab_item", type: "radio"}/
