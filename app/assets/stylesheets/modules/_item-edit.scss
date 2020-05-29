@@ -1,0 +1,30 @@
+.files__content__edit {
+  margin-top: 16px;
+  height: 150px;
+  position: relative;
+  #preview__edit {
+    display: inline-block;
+  }
+  #files__content__form__edit{
+    text-align: center;
+    height:  150px;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: rgb(204, 204, 204);
+    background-color: rgb(245, 245, 245);
+    cursor: pointer;
+    .file__upload__edit {
+      cursor: pointer;
+      display: none;
+    }
+    .fa {
+      cursor: pointer;
+      font-size: 22px;
+      margin-bottom: 8px;
+      margin-top: 40px;
+    }
+    .how__to__upload {
+      font-size: 12px;
+    }
+  }
+}
