@@ -9,6 +9,3 @@
   .destroy__function__link
     = link_to user_credit_card_path(current_user.credit_card), method: :delete, id: 'charge-form', class: "destroy__function__link__btn" do 
       削除する
--# = form_tag(card_delete_path, method: :post, id: 'charge-form',  name: "inputForm") do
--#   %input{ type: "hidden", name: "card_id", value: "" }
--#   %button 削除する
