@@ -180,7 +180,7 @@
           - if user_signed_in? && current_user.id == @item.seller_id
             %li.item__box__btn
               %ul.edit
-                = link_to "#", class: "edit" do
+                = link_to edit_item_path, class: "edit" do
                   編集
               %ul.delete
                 = link_to item_path(@item.id), method: :delete, class: "delete" do

@@ -13,16 +13,26 @@
             必須
           %p.picture__upper__limit
             最大５枚までアップロードできます
-        .files__content
-          #previews
-          %label
-            #files__content__form
-              = f.fields_for :pictures do |picture|
-                .js-file_group{ "data-index": "#{ picture.index }"}
-                  = picture.file_field :image, class: 'file__upload'
-                  = icon("fa", "camera")
-                %p.how__to__upload
-                  クリックしてファイルをアップロード
+        .files__content__edit
+          #previews__edit
+            - @item.pictures.each_with_index do |picture, i|
+              #preview__edit
+                = image_tag picture.image.url, data: {index: i}, width:"100", height:"100"
+                .js-remove{"data-index": i}
+                  削除
+          %label.change__form-id
+            #files__content__form__edit
+              = icon("fa", "camera")
+              %p.how__to__upload
+                クリックしてファイルをアップロード
+              = f.fields_for :pictures, @item.pictures do |picture|
+                .js-file_group_edit{ "data-index": "#{ picture.index }"}
+                  = picture.file_field :image, class: 'file__upload__edit'
+                - if @item.persisted?
+                  = picture.check_box :_destroy, data:{ index: picture.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group_edit{ "data-index": "#{ @item.pictures.count }"}
+                  = file_field_tag :image, name: "item[pictures_attributes][#{@item.pictures.count }][image]", id: "item_pictures_attributes_#{@item.pictures.count }_image", class: 'file__upload__edit'
     %hr.style__line
 
     .item__sell__form2
@@ -50,13 +60,13 @@
             カテゴリー
           %span.required
             必須
-        = f.collection_select :category_id, Category.all, :id, :name, { include_blank: "選択してください", selected: '' }, {id: 'category'}
+        = f.collection_select :category_id, Category.all, :id, :name, { include_blank: "選択してください", selected: @item.category_id }, {id: 'category'}
         .item__size
           %label.item__size__label
             サイズ
           %span.required
             必須
-        = f.collection_select :size, Fit.all, :name, :name, { include_blank: "選択してください", selected: '' }, {id: 'size'}
+        = f.collection_select :size, Fit.all, :name, :name, { include_blank: "選択してください", selected: @item.size }, {id: 'size'}
         .item__brand
           %label.item__brand__label
             ブランド
@@ -69,7 +79,7 @@
             商品の状態
           %span.required
             必須
-        = f.collection_select :condition, Quality.all, :name, :name, { include_blank: "選択してください", selected: '' }, {id: 'condition'}
+        = f.collection_select :condition, Quality.all, :name, :name, { include_blank: "選択してください", selected: @item.condition }, {id: 'condition'}
     %hr.style__line
 
     .item__sell__form4
@@ -81,19 +91,19 @@
             配送料の負担
           %span.required
             必須
-        = f.collection_select :postage_payer, Burden.all, :name, :name, { include_blank: "選択してください", selected: '' }, {id:'postage__payer'}
+        = f.collection_select :postage_payer, Burden.all, :name, :name, { include_blank: "選択してください", selected: @item.postage_payer }, {id:'postage__payer'}
         .item__shipping__origin
           %label.item__shipping__origin__label
             発送元の地域
           %span.required
             必須
-        = f.collection_select :shipping_origin, Prefecture.all, :name, :name, { include_blank: "選択してください", selected: '' }, {id: 'shipping__origin'}
+        = f.collection_select :shipping_origin, Prefecture.all, :name, :name, { include_blank: "選択してください", selected: @item.shipping_origin }, {id: 'shipping__origin'}
         .item__days__to__ship
           %label.item__days__to__ship__label
             発送までの日数
           %span.required
             必須
-        = f.collection_select :days_to_ship, Days.all, :name, :name, { include_blank: "選択してください", selected: '' }, {id: 'days__to__ship'}
+        = f.collection_select :days_to_ship, Days.all, :name, :name, { include_blank: "選択してください", selected: @item.days_to_ship }, {id: 'days__to__ship'}
     %hr.style__line
 
     .item__sell__form5
@@ -120,7 +130,7 @@
           .sales__profit__value
             ー
         .item__submit__form
-          = f.submit '出品する', id: 'item__submit'
+          = f.submit '編集する', id: 'item__submit'
           %button{type: 'submit', id: 'item__submit__draft'}
             下書きに保存
           = link_to root_path, class: "return__link" do
