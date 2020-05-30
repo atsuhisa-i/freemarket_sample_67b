@@ -1,0 +1,93 @@
+.card__information__header__logo {
+  text-align: center;
+  background-color: whitesmoke;
+  .furima__logo {
+    margin: 40px 0 40px 0;
+    width: 180px;
+    height: 50px;
+  }
+}
+
+.information__box {
+  background-color: whitesmoke;
+  height: 100%;
+  .card__information {
+    width: 500px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+    &__title {
+      font-size: 19px;
+      text-align: center;
+      height: 80px;
+      line-height: 80px;
+      font-weight: bold;
+    }
+    &__content {
+      &__number {
+        margin-left: 135px;
+      }
+      &__expiration-date {
+        margin-left: 135px;
+        margin-top: 10px;
+      }
+    }
+    &__destroy__function {
+      text-align: center;
+      height: 30px;
+      margin-top: 30px;
+      &__link {
+        background-color: #ea352d;
+        color: white;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        border-radius: 4px;
+        font-weight: 600;
+        margin: 0 auto;
+      }
+    }
+    &__return__function {
+      text-align: center;
+      height: 60px;
+      margin-top: 10px;
+      &__link {
+        background-color: gray;
+        color: white;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        border-radius: 4px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        margin: 0 auto;
+      }
+    }
+  }
+  
+}
+
+
+.card__information__footer {
+  height: 100%;
+  padding: 40px 0 41px 0;
+  background-color: whitesmoke;
+  text-align: center;
+  ul {
+    li {
+      font-size: 12px;
+      margin-left: 16px;
+      display: inline;
+    }
+  }
+  &__logo {
+    text-align: center;
+    .furima__white__logo {
+      height: 50px;
+      width: 180px;
+      margin-top: 40px;
+    }
+  }
+}

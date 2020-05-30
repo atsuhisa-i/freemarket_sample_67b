@@ -1,11 +1,36 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-.destroy__function
-  .destroy__function__link
-    = link_to user_credit_card_path(current_user.credit_card), method: :delete, id: 'charge-form', class: "destroy__function__link__btn" do 
-      削除する
+.card__information__header__logo
+  = link_to root_path do
+    = image_tag "material/logo/logo.png", class: "furima__logo"
+
+.information__box
+  .card__information
+    .card__information__title
+      .card__information__title-name
+        登録クレジットカード情報
+    .card__information__content
+      .card__information__content__number
+        = "カード番号：**** **** **** " + @default_card_information.last4
+      .card__information__content__expiration-date
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = "有効期限：" + exp_month + " / " + exp_year + " (month/year)"
+    .card__information__destroy__function
+      .card__information__destroy__function__link
+        = link_to user_credit_card_path(current_user.credit_card), method: :delete, id: 'charge-form', class: "destroy__function__link__btn" do
+          削除する
+    .card__information__return__function
+      .card__information__return__function__link
+        = link_to users_path do
+          マイページに戻る
+
+.card__information__footer
+  %ul
+    %li
+      プライバシーポリシー
+    %li
+      フリマ利用規約
+    %li
+      特定商取引に関する表記
+  .card__information__footer__logo
+    = link_to root_path do
+      = image_tag "material/logo/logo-white.png", class: "furima__white__logo"
