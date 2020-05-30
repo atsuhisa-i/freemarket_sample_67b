@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', ()=> {
+$(window).on('load', ()=> {
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group_edit">
                     <input class="file__upload__edit" type="file"
