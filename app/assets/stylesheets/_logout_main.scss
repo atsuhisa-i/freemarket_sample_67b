@@ -1,0 +1,52 @@
+.logout{
+  height: 100vh;
+  width: calc(100vw - 280px);
+  position: absolute;
+  top:100px;
+  left: 300px;  
+  margin-top:16px;
+  margin-left: 25%;
+  padding-top: 35px;
+  width:700px;
+  &__container {
+
+    min-height: 100%;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    line-height: 1;
+    background: #eee;
+    user-select: auto;
+    margin:auto;
+    left: 300px;  
+  }
+    &__content{
+      width:700px;
+    }
+      &__chapter-container{
+        background: #fff;
+      }
+        &__single--inner {
+          padding: 64px;
+          border-top: 1px solid #F5f5f5;
+        }
+          &__single--content {
+            max-width: 320px;
+            margin: 0 auto;
+          }
+
+.btn-default{
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-red {
+  background-color: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;  
+}
+} 

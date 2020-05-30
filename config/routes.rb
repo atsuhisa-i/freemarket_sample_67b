@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'credit_card/new'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -8,8 +9,14 @@ Rails.application.routes.draw do
     post 'deliver_addresses', to: 'users/registrations#create_deliver_address'
   end
 
+  resources :users, only: [:index, :show, :edit] do
+    resources :credit_cards, only: [:new, :create, :show, :destroy]
+  end
+
   root "items#index"
-  resources :items, only: [:new, :create, :show] do
+  resources :items, only: [:new, :create, :show, :destroy, :edit, :update] do
+    resources :comments, only: :create do
+    end
     resources :buyers, only: [:index] do
       collection do
         get 'done', to: 'buyers#done'
@@ -18,4 +25,3 @@ Rails.application.routes.draw do
     end
   end
 end
-

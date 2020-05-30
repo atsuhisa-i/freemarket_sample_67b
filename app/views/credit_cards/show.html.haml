@@ -1,0 +1,11 @@
+%label 登録クレジットカード情報
+%br
+= "**** **** **** " + @default_card_information.last4
+%br
+- exp_month = @default_card_information.exp_month.to_s
+- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+= exp_month + " / " + exp_year
+.destroy__function
+  .destroy__function__link
+    = link_to user_credit_card_path(current_user.credit_card), method: :delete, id: 'charge-form', class: "destroy__function__link__btn" do 
+      削除する

@@ -1,0 +1,202 @@
+.content-all{
+  background-color:#eee;
+  height: 100vh;
+  width: calc(100vw - 280px);
+  position: absolute;
+  top:100px;
+  left: 300px;  
+  margin-top:16px;
+  margin-left: 20%;
+  padding-top: 35px;
+  width:700px;
+  &__right{
+    position:relative;
+    &__image{
+      background-repeat: no-repeat;
+      background-size: cover;
+      list-style: none;
+      height: 206px;
+      &__profile__image{
+        display: block;
+        position:absolute;
+        top: 15%;
+        left: 49%;
+        border-radius: 50%;
+        &__profile__name{
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 30%;
+          color:black;
+          text-decoration:none;
+          font-size: 200%;
+          .value-items{
+            display: block;
+            color:black;
+                }
+              }
+            }
+          }
+        }      
+      
+  .tabs {
+    width: 700px;
+    margin-top: 50px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 0;
+    input[name="tab_item"] {
+      display: none;
+    }
+    
+    .tab_item {
+      width: 50%;
+      height: 72px;
+      background-color: #d9d9d9;
+      line-height: 60px;
+      font-size: 16px;
+      text-align: center;
+      color: #565656;
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: bold;
+      transition: all 0.2s ease;
+        &:hover {
+          opacity: 0.75;
+        }
+    }
+  
+    .tab_content {
+      display: none;
+      clear: both;
+      overflow: hidden;
+      list-style:none;
+    }
+
+
+
+    #all:checked ~ #all_content, #programming:checked ~ #programming_content {
+      display: block;
+    }   
+
+    .tabs input:checked + .tab_item {
+      background-color:white;
+      color:black;
+      border-top: 2px solid #ea352d;
+    }
+
+    #all_content{
+      height:91.42px;
+      border-bottom: solid 0.1px #eee;
+    }
+
+    .tab_content_description{ 
+      min-height: 80px;
+      padding: 16px;
+      color: #333;
+      display:flex; 
+      justify-content: space-between;
+      }
+  
+      #programming_content{
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 78px 85px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc;
+      }
+      .tab_content_middle{
+        float:right;
+      }
+  
+      .tab_content_middle_middle{
+        margin-top:30px;
+      }
+  
+  
+      .image-bottom{
+        margin: 0 auto;
+        height: 56px;
+        margin: 0 auto;
+        background: #eee;
+        color: #333;
+        line-height: 56px;
+        text-align: center;
+        width:100%;
+      }
+  
+      .btn-icon{
+        display: block;
+        color: #333;
+        text-decoration: none;
+    }
+  }
+  .under-tab-content{
+    .tab__head {
+      padding: 0 16px;
+      background:white;
+      font-size: 16px;
+      line-height: 72px
+    }
+  
+    .tab_footer {
+      width:700px;
+  
+    .tab-label {
+      width: 50%;
+      height: 72px;
+      background-color: #d9d9d9;
+      line-height: 60px;
+      font-size: 16px;
+      text-align: center;
+      color: #565656;
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: bold;
+      transition: all 0.2s ease;
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+    input[name="tab-radio"] {
+      display: none;
+    }
+    .tab-content {
+      display: none;
+      padding: 10px;
+      min-height: 200px;
+      margin-top: 50px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin: 0 auto;
+      background-repeat: no-repeat;
+      background-position: center 40px;
+      background-size: 78px 85px;
+      text-align: center;
+      font-size: 16px;
+      color: #ccc;
+    }
+    #tab-1:checked ~ .tab-1-content, #tab-2:checked ~ .tab-2-content, #tab-3:checked ~ .tab-3-content, #tab-4:checked ~ .tab-4-content, #tab-5:checked ~ .tab-5-content {
+      display: block;
+    }
+    input[name="tab-radio"]:checked + .tab-label {
+      background-color: #fff;
+    }
+    .content-all{
+      background-repeat: no-repeat;
+      background-position: center 40px;
+      background-size: 78px 85px;
+      text-align: center;
+      font-size: 16px;
+      color: #ccc;
+    }
+  
+  .tab-1{
+      border-top: 2px solid red;
+        }
+      }
+    }
+  }  

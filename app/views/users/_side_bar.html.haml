@@ -1,0 +1,82 @@
+.left-content
+  %menu.left-content__menu
+    %ul.left-content__list
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        マイページ
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        お知らせ
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        やることリスト
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        いいね！一覧
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        出品する
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        出品した商品 - 出品中
+      %li
+      = link_to  '#', class: 'left-content__list-item' do
+        出品した商品 - 取引中
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        出品した商品 - 売却済み
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        購入した商品 - 取引中
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        購入した商品 - 過去の取引
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        ニュース一覧
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        評価一覧
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        ガイド
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        お問い合わせ
+  %menu.left-content__middle
+    メルペイ
+    %ul.left-content__list
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        売上・振込申請
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        ポイント
+  %menu.left-content__under
+    設定
+    %ul.left-content__list
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        プロフィール
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        発送先・お届け先住所変更
+      %li
+      - if current_user.credit_card.present?
+        = link_to user_credit_card_path(user_id: current_user.id, id:[:id]), class: 'left-content__list-item' do
+          支払い方法確認
+      - else
+        = link_to new_user_credit_card_path(user_id: current_user.id), class: 'left-content__list-item' do
+          支払い方法登録
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        メール/パスワード
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        本人情報
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        電話番号の確認
+      %li
+      = link_to destroy_user_session_path, method: :delete, class: 'left-content__list-item' do
+        ログアウト
