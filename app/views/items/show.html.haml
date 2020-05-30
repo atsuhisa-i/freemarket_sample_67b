@@ -187,12 +187,12 @@
                   削除
           - elsif user_signed_in?
             .item__box__buy
-              = link_to "#", class: "buy-color" do
+              = link_to item_buyers_path(@item), class: "buy-color" do
                 購入画面に進む
-          - else 
+          - else
             .item__box__buy
               = link_to new_user_session_path, class: "buy-color" do
-                購入画面に進む
+                新規登録画面に進む
             .item__box__option
               %ul.like
                 %li.like__btn

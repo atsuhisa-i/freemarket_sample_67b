@@ -135,22 +135,43 @@
             新規投稿商品
       .pickup__box__lists
         - @items.each do |item|
-          .list
-            = link_to item_path(item.id), class: "list__link" do
-              %figure.list__link__image
-                = image_tag item.pictures[0].image.to_s, size: '220x150'
-              .list__link__body
-                %h3.name
-                  = item.name
-                .detai
-                  %ul.detai__lists
-                    %li
-                      = item.price
-                    %li
-                      %i.fa.fa-star
-                      0
-                  %p
-                    (税込)
+          -if item.buyer_id.present?
+            .list
+              = link_to root_path, class: "list__link" do
+                %figure.list__link__image
+                  = image_tag item.pictures[0].image.to_s, size: '220x150'
+                .list__link__body
+                  %h3.name
+                    = item.name
+                  .detai
+                    %ul.detai__lists
+                      %li
+                        = item.price
+                      %li
+                        %i.fa.fa-star
+                        0
+                    %p
+                      (税込) 
+              .items-box_photo__sold
+                .items-box_photo__sold__inner
+                  SOLD
+          -else
+            .list
+              = link_to item_path(item.id), class: "list__link" do
+                %figure.list__link__image
+                  = image_tag item.pictures[0].image.to_s, size: '220x150'
+                .list__link__body
+                  %h3.name
+                    = item.name
+                  .detai
+                    %ul.detai__lists
+                      %li
+                        = item.price
+                      %li
+                        %i.fa.fa-star
+                        0
+                    %p
+                      (税込)
 
 %aside.app-banner
   .app-banner__box

@@ -15,7 +15,13 @@ Rails.application.routes.draw do
 
   root "items#index"
   resources :items, only: [:new, :create, :show, :destroy, :edit, :update] do
-    resources :comments, only: :create
+    resources :comments, only: :create do
+    end
+    resources :buyers, only: [:index] do
+      collection do
+        get 'done', to: 'buyers#done'
+        post 'pay', to: 'buyers#pay'
+      end
+    end
   end
-  resources :puroducts, onyl: [:index]
 end

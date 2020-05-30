@@ -11,7 +11,6 @@
     }
   }
 
-
   .pur-main{
     background: #fff;
     width: 700px;
@@ -36,7 +35,6 @@
       }
       &--text{
         margin-top: 10px;
-
       }
     }
   }
@@ -44,17 +42,6 @@
     width: 80px;
     color: white;
     margin-right: 10px;
-
-  }
-  .purchase-text{
-    span{
-      background-color: red;
-      color: white;
-    }
-  }
-
-  .pur-center{
-    margin: 0 auto;
   }
 
   .pur-left{
@@ -62,11 +49,16 @@
     font-weight: bold;
   }
 
-  .pur-right{
-    width: 200px;
-    text-align: right;
+  .purchase-button{
+    width: 263px;
+    height: 40px;
+    background-color: #3ccace;
+    border-color: #3ccace;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+  }
 
-}
   .item__sell__footer {
     height: 220px;
     padding: 40px 0 41px 0;

@@ -56,7 +56,7 @@
             必須
           %br/
           .form_flex
-            = f.collection_select :prefecture, Prefecture.all, :id, :name, prompt: "---"
+            = f.collection_select :prefecture, Prefecture.all, :name, :name, prompt: "---"
           %br/
           %label
             市区町村

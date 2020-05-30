@@ -1,0 +1,82 @@
+.pur-all{
+  background-color: whitesmoke;
+}
+  .item__sell__header__logo {
+    text-align: center;
+    background-color: whitesmoke;
+    .furima__logo {
+      margin: 40px 0 40px 0;
+      width: 180px;
+      height: 50px;
+    }
+  }
+
+  .done__pur-main{
+    background: #fff;
+    width: 700px;
+    margin: 0 auto;
+    h2{
+      font-size: 22px;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__inner{
+      padding: 24px 16px 40px;
+      border-top: 1px solid #f5f5f5;
+      padding: 40px;
+      max-width: 343px;
+      margin: 0 auto;
+
+      &--content{
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .done__pur-left{
+    width: 100px;
+    font-weight: bold;
+  }
+
+  .done__purchase__link-to__topview{
+    width: 263px;
+    height: 40px;
+    background-color: #3ccace;
+    border-color: #3ccace;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  .item__sell__footer {
+    height: 220px;
+    padding: 40px 0 41px 0;
+    background-color: whitesmoke;
+    text-align: center;
+    ul {
+      li {
+        font-size: 12px;
+        margin-left: 16px;
+        display: inline;
+      }
+    }
+    &__logo {
+      text-align: center;
+      .furima__white__logo {
+        height: 50px;
+        width: 180px;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .style__line {
+    border-top-color: #efefef;
+    border-top-style: solid;
+    border-bottom: 0 solid;
+    margin: 0 350px 0 350px;
+  }
