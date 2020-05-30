@@ -1,9 +1,9 @@
 class BuyersController < ApplicationController
   require 'payjp'
   before_action :set_item
+  before_action :set_card, only: [:index, :pay]
 
   def index
-    @credit_card = CreditCard.where(user_id: current_user.id).first
     if @credit_card.blank?
       redirect_to new_user_credit_card_path(user_id: current_user.id)
     else
@@ -15,7 +15,6 @@ class BuyersController < ApplicationController
   end
 
   def pay
-    @credit_card = CreditCard.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
       :amount => @item.price,
@@ -35,4 +34,8 @@ private
 
 def set_item
   @item = Item.find(params[:item_id])
+end
+
+def set_card
+  @credit_card = CreditCard.where(user_id: current_user.id).first
 end
