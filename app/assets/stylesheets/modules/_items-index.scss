@@ -376,6 +376,25 @@ body {
                 }
               }
             }
+          }
+          .items-box_photo__sold{
+            width: 0;
+            height: 0;
+            border-top: 30px solid #ea352d ;
+            border-right: 30px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-left: 30px solid #ea352d ;
+            z-index:100;
+            position: relative;
+            top:-239px;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 10px;
+              margin: -15px 0px 0px -25px;
+              color: #fff;
+              letter-spacing: 1px;
+              font-weight: 600;
+            }
           }   
         }
       }
