@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_children, :get_category_grandchildren]
 
   def index
     @items = Item.all.includes(:pictures).order('created_at DESC')
@@ -10,6 +10,11 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.pictures.build
       @item.build_brand
+      @category_parent_array = ["---"]
+#データベースから、親カテゴリーのみ抽出し、配列化
+      Category.where(ancestry: nil).each do |parent|
+         @category_parent_array << parent.name
+      end
     else
       redirect_to root_path
     end
@@ -48,6 +53,23 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :edit
+    end
+  end
+
+  def get_category_children
+    respond_to do |format| 
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+  def get_category_grandchildren
+    respond_to do |format| 
+      format.html
+      format.json do
+        @grandchildren = Category.find("#{params[:child_id]}").children
+      end
     end
   end
 

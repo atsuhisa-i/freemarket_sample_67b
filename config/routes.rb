@@ -23,5 +23,13 @@ Rails.application.routes.draw do
         post 'pay', to: 'buyers#pay'
       end
     end
+    collection do # 新規用（new) usr:products/newのため
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do # 編集(edit用) usl: products/id/editのため
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
 end
