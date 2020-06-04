@@ -4,5 +4,5 @@
       .logout__chapter-container
         %form.logout__single--inner
           .logout__single--content
-          %button
-            = link_to destroy_user_session_path, method: :delete, class: "btn-default.btn-red"{type: "submit"} do
+          %button.btn-default.btn-red
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
