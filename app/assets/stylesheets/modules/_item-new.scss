@@ -16,7 +16,6 @@
     text-align: left;
     .form__frame {
       background-color: white;
-      height: 300px;
       width: 700px;
       padding: 40px 40px;
       .item__picture {
@@ -42,7 +41,6 @@
       }
       .files__content {
         margin-top: 16px;
-        height: 150px;
         position: relative;
         #preview {
           display: inline-block;
@@ -141,7 +139,6 @@
     text-align: left;
     .form__frame {
       background-color: white;
-      height: 570px;
       width: 700px;
       padding: 40px 40px;
       .item__detail {
@@ -168,7 +165,7 @@
           margin-left: 8px;
         }
       }
-      #category {
+      .listing-select-wrapper__box--select {
         width: 620px;
         height: 48px;
         margin-top: 16px;

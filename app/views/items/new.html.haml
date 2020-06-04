@@ -50,7 +50,7 @@
             カテゴリー
           %span.required
             必須
-        = f.collection_select :category_id, Category.all, :id, :name, { include_blank: "選択してください", selected: '' }, {id: 'category'}
+          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         .item__size
           %label.item__size__label
             サイズ
