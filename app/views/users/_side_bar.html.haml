@@ -78,5 +78,5 @@
       = link_to '#', class: 'left-content__list-item' do
         電話番号の確認
       %li
-      = link_to destroy_user_session_path, method: :delete, class: 'left-content__list-item' do
+      = link_to logout_user_path(current_user.id), class: 'left-content__list-item' do
         ログアウト

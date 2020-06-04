@@ -1,0 +1,8 @@
+.logout
+  .logout__container.clearfix
+    .logout__content
+      .logout__chapter-container
+        %form.logout__single--inner
+          .logout__single--content
+          %button.btn-default.btn-red
+            = link_to "ログアウト", destroy_user_session_path, method: :delete

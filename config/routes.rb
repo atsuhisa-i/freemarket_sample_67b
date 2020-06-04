@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show, :edit] do
+    member do
+      get 'logout'
+    end
     resources :credit_cards, only: [:new, :create, :show, :destroy]
   end
 
