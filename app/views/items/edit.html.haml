@@ -60,8 +60,11 @@
             カテゴリー
           %span.required
             必須
-        -# = f.collection_select :category_id, Category.all, :id, :name, { include_blank: "選択してください", selected: @item.category_id }, {id: 'category'}
-        = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+          = f.collection_select :category_id, Category.where(ancestry: nil).each, :id, :name, { selected: @item.category.root_id }, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+          - if @item.persisted?
+            = f.collection_select :category_id, @item.category.root.children, :id, :name, { selected: @item.category.parent_id }, {class: 'listing-select-wrapper__box--select', id: 'child_category-edit'}
+            = f.collection_select :category_id, @item.category.root.indirects, :id, :name, { selected: @item.category_id }, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category-edit'}
+
         .item__size
           %label.item__size__label
             サイズ

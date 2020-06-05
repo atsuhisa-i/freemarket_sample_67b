@@ -31,15 +31,16 @@ $(function(){
   }
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value;
+    $("#child_category-edit").remove();
+    $("#grandchild_category-edit").remove();
     if (parentCategory != "選択してください"){
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
-        data: { parent_name: parentCategory },
+        data: { parent_id: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
-        console.log(children)
         $('#children_wrapper').remove();
         $('#grandchildren_wrapper').remove();
         var insertHTML = '';
@@ -58,6 +59,7 @@ $(function(){
   });
   $('.item__category').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category');
+    $("#grandchild_category-edit").remove()
     if (childId != "選択してください"){
       $.ajax({
         url: 'get_category_grandchildren',

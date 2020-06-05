@@ -10,17 +10,13 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.pictures.build
       @item.build_brand
-      @category_parent_array = ['選択してください']
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
     else
       redirect_to root_path
     end
   end
 
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find("#{params[:parent_id]}").children
   end
 
   def get_category_grandchildren
@@ -52,10 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @category_parent_array = [@item.category.name]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-    end
+    
   end
 
   def update
