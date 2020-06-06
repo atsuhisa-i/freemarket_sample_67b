@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def index
     @items = Item.all.includes(:pictures).order('created_at DESC')
@@ -13,6 +13,14 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def get_category_children
+    @category_children = Category.find("#{params[:parent_id]}").children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -40,7 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-  
+    
   end
 
   def update
